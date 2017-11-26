@@ -14,10 +14,10 @@ public class Loja {
 	}
 	public Loja(String nome, String descricao, String cep, String estado, String telefone){
 		this.nome = nome;
-		this.descricao=descricao;
-		this.cep=cep;
-		this.estado=estado;
-		this.telefone=telefone;
+		this.descricao = descricao;
+		this.cep = cep;
+		this.estado = estado;
+		this.telefone = telefone;
 		anuncios = cliente.getAnuncios();
 	}
 	public String getNome() {

@@ -2,6 +2,7 @@ package br.ufrpe.geekMart.dados;
 
 
 
+import br.ufrpe.geekMart.classesBasicas.Cliente;
 import br.ufrpe.geekMart.classesBasicas.Loja;
 import br.ufrpe.geekMart.classesBasicas.Usuario;
 
@@ -24,8 +25,15 @@ public class RepositorioLoja {
 	}
 	
 	public void cadastrar(Usuario user, Loja c){
-		this.lojas[this.proxima] = c;
-		this.proxima = this.proxima +1;
+	    boolean r = this.existe(c.getNome());
+	    if (r == false) {
+            this.lojas[this.proxima] = c;
+            this.proxima = this.proxima +1;
+            if (this.proxima == lojas.length) {
+                this.duplicaArrayLojas();
+            }
+        }
+
 	}
 	private int procurarIndice(String num){
 		int i = 0;
@@ -35,10 +43,10 @@ public class RepositorioLoja {
 				achou = true;
 			} else {
 				i = i+1;
-		}
+			}
 		
-	}
-	return i;
+		}
+		return i;
 	}
 	public Loja procurar(String num){
 		int i = this.procurarIndice(num);
@@ -62,7 +70,7 @@ public class RepositorioLoja {
 	public boolean existe(String titulo){
 		boolean existe = false;
 		int indice = this.procurarIndice(titulo);
-		if(indice != proxima){
+		if(indice != this.proxima){
 			existe = true;
 		}
 		return existe;
@@ -78,7 +86,10 @@ public class RepositorioLoja {
 	}
 	
     public void alterarLoja(Loja loja){
-		
+		int indice = this.procurarIndice(loja.getNome());
+		if (indice != this.proxima) {
+		    lojas[indice] = loja;
+        }
 	}
 }
 

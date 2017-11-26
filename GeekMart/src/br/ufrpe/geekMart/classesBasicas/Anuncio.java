@@ -77,9 +77,9 @@ public class Anuncio {
 	public boolean equals(Anuncio c){
 		boolean r;
 		if(c != null && this.titulo != null && this.categoria != null){
-			r=(this.titulo.equals(c.getTitulo())&&this.categoria.equals(c.getCategoria()));
+			r = (this.titulo.equals(c.getTitulo()) && this.categoria.equals(c.getCategoria()));
 		}else{
-			r=false;
+			r = false;
 		}
 		return r;
 		

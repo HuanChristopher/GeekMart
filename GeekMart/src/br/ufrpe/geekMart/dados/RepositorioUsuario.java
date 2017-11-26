@@ -2,8 +2,7 @@ package br.ufrpe.geekMart.dados;
 
 
 
-import br.ufrpe.geekMart.classesBasicas.Anuncio;
-import br.ufrpe.geekMart.classesBasicas.Usuario;
+import br.ufrpe.geekMart.classesBasicas.*;
 
 public class RepositorioUsuario {
 	
@@ -27,21 +26,41 @@ public class RepositorioUsuario {
 	}
 	
 	public void cadastrar(Usuario c){
-		this.usuarios[this.proxima] = c;
-		this.proxima = this.proxima +1;
+	    boolean r = this.existe(c.getCpf());
+	    if (r == false) {
+            this.usuarios[this.proxima] = c;
+            this.proxima = this.proxima + 1;
+            if (this.proxima == this.usuarios.length) {
+                this.duplicaArrayUsuarios();
+            }
+        }
 	}
+
+	public void bloquearUsuario (String cpf) {
+		int indice = procurarIndice(cpf);
+		if (indice < this.proxima) {
+			usuarios[indice].setBloqueado();
+		}
+	}
+
+	public void desbloquearUsuario (String cpf) {
+		int indice = procurarIndice(cpf);
+		if (indice < this.proxima) {
+			usuarios[indice].setAtivo();
+		}
+	}
+
 	private int procurarIndice(String num){
 		int i = 0;
 		boolean achou = false;
-		while ((!achou) && (i < this.proxima)){
-			if(num.equals(this.usuarios[i].getCpf())){
+		while ((!achou) && (i < this.proxima)) {
+			if (num.equals(this.usuarios[i].getCpf())) {
 				achou = true;
 			} else {
-				i = i+1;
+				i++;
+			}
 		}
-		
-	}
-	return 1;
+	 	return i;
 	}
 	public Usuario procurar(String num){
 		int i = this.procurarIndice(num);
@@ -65,12 +84,13 @@ public class RepositorioUsuario {
 		boolean retorno = false;
 		boolean equivale;
 		user = this.procurar(cpf);
-		equivale = user.getSenha().equals(senha);
-		if (equivale != false) {
+		equivale = user.verificarSenha(senha);
+		if ((equivale != false) && (user.getAtivo() == true)) {
 			retorno = true;
 		}
 		return retorno;
 	}
+
 	public boolean existe(String cpf){
 		boolean existe = false;
 		int indice = this.procurarIndice(cpf);
@@ -88,8 +108,11 @@ public class RepositorioUsuario {
 			this.usuarios = arrayDuplicado;
 		}
 	}
-	public void alterarUsuario(Usuario Usuario){
-		
+	public void alterarUsuario(Usuario usuario){
+		int indice = this.procurarIndice(usuario.getCpf());
+		if (indice != this.proxima) {
+			usuarios[indice] = usuario;
+		}
 	}
 	
 	

@@ -1,7 +1,8 @@
 package br.ufrpe.geekMart.classesBasicas;
 
 public class Usuario {
-	
+
+	private boolean ativo = true;
 	private String nome, email , cpf, senha;
 	
 	public Usuario(String nome, String email, String cpf, String senha){
@@ -13,6 +14,18 @@ public class Usuario {
 	
 	public Usuario(){
 	
+	}
+
+	public boolean getAtivo () {
+		return this.ativo;
+	}
+
+	public void setAtivo () {
+		this.ativo = true;
+	}
+
+	public void setBloqueado () {
+		this.ativo = false;
 	}
 	
 	public String getNome(){
@@ -39,8 +52,16 @@ public class Usuario {
 		this.cpf=cpf;
 	}
 	
-	public String getSenha(){
+	private String getSenha(){
 		return senha;
+	}
+
+	public boolean verificarSenha (String senha) {
+		boolean r = false;
+		if (this.getSenha().equals(senha)) {
+			r = true;
+		}
+		return r;
 	}
 	
 	public void setSenha(String senha){

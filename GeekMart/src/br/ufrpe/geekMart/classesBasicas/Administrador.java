@@ -1,5 +1,7 @@
 package br.ufrpe.geekMart.classesBasicas;
 
+import br.ufrpe.geekMart.dados.RepositorioUsuario;
+
 public class Administrador extends Usuario{
 	
 	public Administrador(){
@@ -13,6 +15,5 @@ public class Administrador extends Usuario{
 	public String toString() {
 		return "Nome: " + this.getNome() + "\nCpf: " + this.getCpf() + "\nEmail: " + this.getEmail();
 	}
-	
-	
+
 }

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Cliente extends Usuario{
 	
-	private boolean ativo = true;
 	private String telefone;
 	private Endereco endereco = new Endereco();
 	private ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
@@ -22,6 +21,15 @@ public class Cliente extends Usuario{
 		this.endereco = new Endereco(endereco.getLogradouro(), endereco.getNumero(), endereco.getBairro(), endereco.getCidade(), endereco.getEstado(), endereco.getCep(),
 				endereco.getComplemento());
 	
+	}
+
+	public void setLoja (Loja loja) {
+		if (this.loja == null) {
+			this.loja = loja;
+		}
+		else {
+
+		}
 	}
 	
 	public String getTelefone(){
@@ -47,7 +55,5 @@ public class Cliente extends Usuario{
 	public void setAnuncios(Anuncio anuncios) {
 		this.anuncios.add(anuncios);
 	}
-	
-	
-	
+
 }

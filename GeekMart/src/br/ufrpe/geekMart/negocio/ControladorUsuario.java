@@ -56,16 +56,24 @@ public class ControladorUsuario {
 		}
 		return instancia;
 	}
-	public void alterarUsuario(Usuario user){
-		// Precisa ser implementado
-		
+
+	public void bloquearUsuario (String cpf) {
+	    if (cpf != null) {
+            repositorio.bloquearUsuario(cpf);
+        }
 	}
-	
-	
-	
-	
-	
-	
+
+	public void desbloquearUsuario (String cpf) {
+	    if (cpf != null) {
+            repositorio.desbloquearUsuario(cpf);
+        }
+	}
+
+	public void alterarUsuario(Usuario usuario){
+	    if (usuario != null) {
+            repositorio.alterarUsuario(usuario);
+        }
+	}
 	
 	
 	

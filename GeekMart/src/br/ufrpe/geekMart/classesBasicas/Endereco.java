@@ -22,6 +22,7 @@ public class Endereco {
 	public String getLogradouro(){
 		return logradouro;
 	}
+
 	public void setLogradouro(String logradouro){
 		this.logradouro=logradouro;
 	}
@@ -30,7 +31,6 @@ public class Endereco {
 	public String getNumero() {
 		return numero;
 	}
-
 
 	public void setNumero(String numero) {
 		this.numero = numero;
@@ -88,7 +88,7 @@ public class Endereco {
 	
 	@Override
 	public String toString() {
-		return "Logradouro: " + this.getLogradouro() + "		Número: " + this.getNumero() + "\nComplemento: "
+		return "Logradouro: " + this.getLogradouro() + "		Nï¿½mero: " + this.getNumero() + "\nComplemento: "
 				+ this.getComplemento() + "\nCep: " + this.getCep() + "\nCidade: " + this.getCidade()
 				+ "		Estado: " + this.getEstado();}
 	
