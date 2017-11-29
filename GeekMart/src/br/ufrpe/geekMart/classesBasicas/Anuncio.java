@@ -1,8 +1,6 @@
 package br.ufrpe.geekMart.classesBasicas;
 
-
-
-
+import java.awt.*;
 import java.time.LocalDateTime;
 
 public class Anuncio {
@@ -13,12 +11,14 @@ public class Anuncio {
 	private String descricao;
 	private Categoria categoria;
 	private String cep, estado;
-	//imagens
+	private Image[] imagens = new Image[5];
+	private int qtImagem = 0;
 	private LocalDateTime data = LocalDateTime.now();
 	
 	public Anuncio(){
 		
 	}
+
 	public Anuncio(Cliente cliente, double preco, String titulo, String descricao, Categoria categoria, String cep,
 			String estado, LocalDateTime data) {
 		this.cliente = cliente;
@@ -85,4 +85,14 @@ public class Anuncio {
 		
 	}
 
+    public Image[] getImagens() {
+        return imagens;
+    }
+
+    public void setImagem (Image imagem) {
+	    if (imagem != null && qtImagem < 3) {
+            this.imagens[this.qtImagem] = imagem;
+            this.qtImagem++;
+        }
+    }
 }
