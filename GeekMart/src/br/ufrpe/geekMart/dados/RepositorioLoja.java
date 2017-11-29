@@ -11,15 +11,15 @@ public class RepositorioLoja {
 	private Loja[] lojas;
 	private int proxima;	
 	private static RepositorioLoja instancia;
+
 	public static RepositorioLoja getInstancia() {
-		
+		if (instancia == null) {
+			instancia = new RepositorioLoja(100);
+		}
 		return instancia;
 	}
-	
-	public RepositorioLoja(){
-		
-	}
-	public RepositorioLoja(int tamanho){
+
+	private RepositorioLoja(int tamanho){
 		this.lojas = new Loja[tamanho];
 		this.proxima = 0;
 	}

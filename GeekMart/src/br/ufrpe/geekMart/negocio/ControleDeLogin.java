@@ -8,7 +8,7 @@ public class ControleDeLogin {
 		private ControladorUsuario cadastroUser;
 		private static ControleDeLogin instancia;
 
-		private static ControleDeLogin getInstancia() {
+		public static ControleDeLogin getInstancia() {
 			if (instancia == null) {
 				instancia = new ControleDeLogin();
 			}

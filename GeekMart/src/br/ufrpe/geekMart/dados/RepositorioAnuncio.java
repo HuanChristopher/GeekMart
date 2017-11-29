@@ -10,6 +10,7 @@ public class RepositorioAnuncio {
 	private int proxima;
 	
 	private static RepositorioAnuncio instancia;
+
 	public static RepositorioAnuncio getInstancia() {
 		
 		return instancia;

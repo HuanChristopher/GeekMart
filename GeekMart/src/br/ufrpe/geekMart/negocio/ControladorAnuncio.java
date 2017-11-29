@@ -11,7 +11,7 @@ public class ControladorAnuncio {
 	private static ControladorAnuncio instancia;
 	private RepositorioAnuncio repositorio;
 	
-	ControladorAnuncio() {
+	private ControladorAnuncio() {
 		this.repositorio = RepositorioAnuncio.getInstancia();
 	}
 

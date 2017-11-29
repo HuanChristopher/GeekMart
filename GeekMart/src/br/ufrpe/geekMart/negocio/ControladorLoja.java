@@ -11,7 +11,7 @@ public class ControladorLoja {
 	private RepositorioLoja repositorio;
 	
 	
-	ControladorLoja() {
+	private ControladorLoja() {
 		this.repositorio = RepositorioLoja.getInstancia();
 	}
 

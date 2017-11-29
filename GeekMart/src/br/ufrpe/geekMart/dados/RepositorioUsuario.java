@@ -6,21 +6,19 @@ import br.ufrpe.geekMart.classesBasicas.*;
 
 public class RepositorioUsuario {
 	
-	private Usuario[] usuarios = new Usuario[20];;
+	private Usuario[] usuarios;;
 	private Usuario user;
 	private int proxima;
-	
-	private static RepositorioUsuario instancia;
+    private static RepositorioUsuario instancia;
 
 	public static RepositorioUsuario getInstancia() {
-		
+		if (instancia == null) {
+			instancia = new RepositorioUsuario(100);
+		}
 		return instancia;
 	}
-	
-	public RepositorioUsuario(){
-		
-	}
-	public RepositorioUsuario(int tamanho){
+
+	private RepositorioUsuario(int tamanho){
 		this.usuarios = new Usuario[tamanho];
 		this.proxima = 0;
 	}

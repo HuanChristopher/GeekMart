@@ -145,6 +145,7 @@ public class ClasseTeste {
                             scan.next();
                             anuncio.setEstado(estado2);
                             //anuncio.getCategoria();
+                            cliente.setAnuncios(anuncio);
                             fachada.adicionarAnuncio(anuncio);
                             System.out.println("~~~ANUNCIO CRIADO~~~");
                             break;

@@ -4,19 +4,20 @@ import br.ufrpe.geekMart.classesBasicas.Usuario;
 import br.ufrpe.geekMart.dados.RepositorioUsuario;
 
 public class ControladorUsuario {
-	private static ControladorUsuario instancia;
+
 	private RepositorioUsuario repositorio;
-	
-	ControladorUsuario() {
+	private static ControladorUsuario instancia;
+
+	private ControladorUsuario () {
 		this.repositorio = RepositorioUsuario.getInstancia();
 	}
 
-	public static ControladorUsuario getInstancia() {
-		if (instancia == null) {
-			instancia = new ControladorUsuario();
-		}
-		return instancia;
-	}
+	public static ControladorUsuario getInstancia () {
+	    if (instancia == null) {
+	        instancia = new ControladorUsuario();
+        }
+        return instancia;
+    }
 	
 	public void cadastrarUsuario(Usuario user){
 		if(user != null){
@@ -48,13 +49,6 @@ public class ControladorUsuario {
 			}
 		}
 		return retorno;
-	}
-
-	public static ControladorUsuario getControlador() {
-		if (instancia == null) {
-			instancia = new ControladorUsuario();
-		}
-		return instancia;
 	}
 
 	public void bloquearUsuario (String cpf) {
