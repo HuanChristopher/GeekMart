@@ -20,7 +20,7 @@ public class Anuncio {
 		
 	}
 	public Anuncio(Cliente cliente, double preco, String titulo, String descricao, Categoria categoria, String cep,
-			String estado, LocalDateTime data) {
+			String estado) {
 		this.cliente = cliente;
 		this.preco = preco;
 		this.titulo = titulo;
@@ -73,6 +73,10 @@ public class Anuncio {
 	public LocalDateTime getData() {
 		return data;
 	}
+	public void setCliente(Cliente cliente){
+		this.cliente = cliente;
+	}
+
 	
 	public boolean equals(Anuncio c){
 		boolean r;
@@ -84,5 +88,8 @@ public class Anuncio {
 		return r;
 		
 	}
-
+	public String toString(){
+		String c = "O Anuncio "+titulo+" possui preço "+preco;
+		return c;
+	}
 }

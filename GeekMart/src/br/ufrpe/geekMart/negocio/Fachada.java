@@ -89,6 +89,14 @@ public class Fachada {
 			return this.controleLogin.autenticarLogin(senha, cpf);
 		}
 
-		
+		//ADM
+
+		public void bloquearUsuario(String cpf){
+			 this.cadastroUsuario.bloquearUsuario(cpf);
+		}
+
+		public void desbloquearUsuario(String cpf){
+			this.cadastroUsuario.desbloquearUsuario(cpf);
+		}
 	
 }

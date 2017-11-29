@@ -62,7 +62,13 @@ public class Loja {
 	public void setTamanho(int tamanho) {
 		this.tamanho = tamanho;
 	}
-	
+	public void setCliente(Cliente cliente){
+		this.cliente = cliente;
+	}
+	public String toString(){
+		String c = "A loja "+nome+" possui a descrição: "+descricao;
+		return c;
+	}
 	
 
 }

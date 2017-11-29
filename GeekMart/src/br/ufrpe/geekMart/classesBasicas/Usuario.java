@@ -3,7 +3,7 @@ package br.ufrpe.geekMart.classesBasicas;
 public class Usuario {
 
 	private boolean ativo = true;
-	private String nome, email , cpf, senha;
+	public String nome, email , cpf, senha;
 	
 	public Usuario(String nome, String email, String cpf, String senha){
 		this.nome = nome;
