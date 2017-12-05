@@ -10,16 +10,16 @@ public class RepositorioLoja {
 	
 	private Loja[] lojas;
 	private int proxima;	
-	private static RepositorioLoja instancia = new RepositorioLoja(50);
+	private static RepositorioLoja instancia;
+
 	public static RepositorioLoja getInstancia() {
-		
+		if (instancia == null) {
+			instancia = new RepositorioLoja(100);
+		}
 		return instancia;
 	}
-	
-	public RepositorioLoja(){
-		
-	}
-	public RepositorioLoja(int tamanho){
+
+	private RepositorioLoja (int tamanho){
 		this.lojas = new Loja[tamanho];
 		this.proxima = 0;
 	}
@@ -34,8 +34,8 @@ public class RepositorioLoja {
                 this.duplicaArrayLojas();
             }
         }
-
 	}
+
 	private int procurarIndice(String num){
 		int i = 0;
 		boolean achou = false;
@@ -45,21 +45,20 @@ public class RepositorioLoja {
 			} else {
 				i = i+1;
 			}
-		
 		}
 		return i;
 	}
-	public Loja procurar(String num){
+	public Loja procurar (String num){
 		int i = this.procurarIndice(num);
 		Loja resultado = null;
-		if (i != this.proxima) {
+		if (i < this.proxima) {
 			resultado = this.lojas[i];
 		}
 		return resultado;
 	}
 	public void remover(String num){
 		int i = this.procurarIndice(num);
-		if (i != this.proxima){
+		if (i < this.proxima){
 			this.lojas[i]= this.lojas[this.proxima -1];
 			this.lojas[this.proxima -1]= null;
 			this.proxima = this.proxima -1 ;
@@ -77,7 +76,7 @@ public class RepositorioLoja {
 		return existe;
 	}
 	private void duplicaArrayLojas(){
-		if(this.lojas != null && this.lojas.length>0){
+		if (this.lojas != null && this.lojas.length>0) {
 			Loja[] arrayDuplicado = new Loja[this.lojas.length*2];
 			for(int i=0 ; i< this.lojas.length; i++){
 				arrayDuplicado[i] = this.lojas[i];
@@ -86,7 +85,7 @@ public class RepositorioLoja {
 		}
 	}
 	
-    public void alterarLoja(Loja loja){
+    public void alterarLoja (Loja loja) {
 		int indice = this.procurarIndice(loja.getNome());
 		if (indice != this.proxima) {
 		    lojas[indice] = loja;

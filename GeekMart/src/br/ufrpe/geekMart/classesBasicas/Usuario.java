@@ -49,7 +49,7 @@ public class Usuario {
 	}
 	
 	public void setCpf(String cpf){
-		this.cpf=cpf;
+		this.cpf = cpf;
 	}
 	
 	private String getSenha(){

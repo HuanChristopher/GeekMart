@@ -10,18 +10,16 @@ public class RepositorioUsuario {
 	private List<Usuario> listaUsuarios = null;
 	private Usuario user;
 	private int proxima;
-	
-	private static RepositorioUsuario instancia = new RepositorioUsuario(50);
+	private static RepositorioUsuario instancia;
 
 	public static RepositorioUsuario getInstancia() {
-		
+		if (instancia == null) {
+			instancia = new RepositorioUsuario(100);
+		}
 		return instancia;
 	}
-	
-	public RepositorioUsuario(){
-		
-	}
-	public RepositorioUsuario(int tamanho){
+
+	private RepositorioUsuario (int tamanho){
 		this.usuarios = new Usuario[tamanho];
 		this.proxima = 0;
 	}
@@ -73,18 +71,18 @@ public class RepositorioUsuario {
 		return resultado;
 	}
 
-	public void remover(String num){
+	public void remover (String num) {
 		int i = this.procurarIndice(num);
 		if (i != this.proxima){
-			this.usuarios[i]= this.usuarios[this.proxima -1];
+			this.usuarios[i] = this.usuarios[this.proxima -1];
 			this.usuarios[this.proxima -1]= null;
 			this.proxima = this.proxima -1 ;
-		} else{
+		} else {
 			
 		}
 	}
 
-	public boolean autenticarLogin(String senha, String cpf) {
+	public boolean autenticarLogin (String senha, String cpf) {
 		boolean retorno = false;
 		boolean equivale;
 		user = this.procurar(cpf);
@@ -95,33 +93,30 @@ public class RepositorioUsuario {
 		return retorno;
 	}
 
-	public boolean existe(String cpf){
+	public boolean existe (String cpf) {
 		boolean existe = false;
 		int indice = this.procurarIndice(cpf);
-		if(indice != proxima){
+		if (indice != proxima){
 			existe = true;
 		}
 		return existe;
 	}
-	public void duplicaArrayUsuarios(){
+
+	public void duplicaArrayUsuarios () {
 		if(this.usuarios != null && this.usuarios.length>0){
 			Usuario[] arrayDuplicado = new Usuario[this.usuarios.length*2];
-			for(int i=0 ; i< this.usuarios.length; i++){
+			for (int i=0; i< this.usuarios.length; i++){
 				arrayDuplicado[i] = this.usuarios[i];
 			}
 			this.usuarios = arrayDuplicado;
 		}
 	}
 
-	public void alterarUsuario(Usuario usuario){
+	public void alterarUsuario (Usuario usuario) {
 		int indice = this.procurarIndice(usuario.getCpf());
 		if (indice != this.proxima) {
 			usuarios[indice] = usuario;
 		}
 	}
-	
-	
-	
-	
 }
 

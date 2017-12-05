@@ -14,10 +14,10 @@ public class Fachada {
 	private ControladorLoja cadastroLoja;
 
 	private Fachada() {
-		this.cadastroAnuncio = ControladorAnuncio.getInstancia();
-		this.cadastroLoja = ControladorLoja.getInstancia();
-		this.controleLogin = ControleDeLogin.getInstancia();
-		this.cadastroUsuario = ControladorUsuario.getInstancia();
+		this.cadastroAnuncio = new ControladorAnuncio();
+		this.cadastroLoja = new ControladorLoja();
+		this.controleLogin = new ControleDeLogin();
+		this.cadastroUsuario = new ControladorUsuario();
 	}
 
 	public static Fachada getInstancia() {
@@ -56,7 +56,7 @@ public class Fachada {
 		}
 
 		
-		public void alterarAnuncio(Anuncio anuncio) {
+		public void alterarAnuncio (Anuncio anuncio) {
 			this.cadastroAnuncio.alterarAnuncio(anuncio);
 		}
 

@@ -142,7 +142,7 @@ public class ClasseTeste {
                                 "[5]CRIAR LOJA\n[6]DELETAR LOJA\n[7]PROCURAR LOJA\n[8]ALTERAR LOJA\n" +
                                 "[9]ALTERAR CADASTRO");
                         int choice03 = scan.nextInt();
-                        scan.nextInt();
+                        scan.next();
                         switch (choice03) {
                             case 1: {
                                 anuncio.setCliente(cliente);
@@ -195,11 +195,11 @@ public class ClasseTeste {
                                 System.out.println("Informar título do anúncio que será alterado:");
                                 tituloa = scan.nextLine();
                                 scan.next();
-                                System.out.println("Informar título do anúncio:");
+                                System.out.println("Informar o novo título do anúncio:");
                                 titulo = scan.nextLine();
                                 scan.next();
                                 fachada.buscarAnuncio(tituloa).setTitulo(titulo);
-                                System.out.println("Informar preço do anúncio:");
+                                System.out.println("Informar novo preço do anúncio:");
                                 preco = scan.nextDouble();
                                 scan.next();
                                 fachada.buscarAnuncio(tituloa).setPreco(preco);

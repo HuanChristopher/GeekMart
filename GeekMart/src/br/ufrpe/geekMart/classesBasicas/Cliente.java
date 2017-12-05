@@ -52,7 +52,7 @@ public class Cliente extends Usuario{
 		return anuncios;
 	}
 
-	public void setAnuncios(Anuncio anuncios) {
+	public void setAnuncios (Anuncio anuncios) {
 		this.anuncios.add(anuncios);
 	}
 
