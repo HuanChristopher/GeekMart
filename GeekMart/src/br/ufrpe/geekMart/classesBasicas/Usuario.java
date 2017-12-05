@@ -77,7 +77,12 @@ public class Usuario {
 		}
 		return r;
 	}
-	
+
+	public String toString(){
+		String c;
+		c = "O nome do usario é "+nome;
+		return c;
+	}
 	
 	
 }

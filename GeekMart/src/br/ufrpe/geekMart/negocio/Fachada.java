@@ -3,6 +3,7 @@ package br.ufrpe.geekMart.negocio;
 import br.ufrpe.geekMart.classesBasicas.Anuncio;
 import br.ufrpe.geekMart.classesBasicas.Loja;
 import br.ufrpe.geekMart.classesBasicas.Usuario;
+import br.ufrpe.geekMart.negocio.*;
 
 public class Fachada {
 	

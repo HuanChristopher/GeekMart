@@ -33,4 +33,10 @@ public class Categoria {
 	public void setCategorias(int num, String novaCategoria) {
 		this.categorias[num] = novaCategoria;
 	}
+
+
 }
+
+
+
+

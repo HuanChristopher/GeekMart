@@ -17,12 +17,12 @@ public class ControladorUsuario {
 		}
 		return instancia;
 	}
-	
-	public void cadastrarUsuario(Usuario user){
-		if(user != null){
-			boolean  existe = this.repositorio.existe(user.getCpf());
-			if (existe != true){
-				this.repositorio.cadastrar(user);
+
+	public void cadastrarUsuario(Usuario user) {
+		if (user != null) {
+			boolean existe = this.repositorio.existe(user.getCpf());
+			if (existe != true) {
+				this.repositorio.cadastrarUsuario(user);
 			}
 		}
 	}
@@ -39,11 +39,11 @@ public class ControladorUsuario {
 				this.repositorio.remover(cpf);
 		}
 	}
-	public boolean autenticarLogin(String senha, String cpf){
+	public boolean autenticarLogin(String senha, String cpf) {
 		boolean retorno = false;
-		if(cpf != null && senha != null){
+		if (cpf != null && senha != null) {
 			boolean existe = this.repositorio.existe(cpf);
-			if(existe != false){
+			if (existe != false) {
 				retorno = this.repositorio.autenticarLogin(senha, cpf);
 			}
 		}

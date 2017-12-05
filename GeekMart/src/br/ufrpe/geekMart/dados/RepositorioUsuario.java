@@ -1,16 +1,17 @@
 package br.ufrpe.geekMart.dados;
 
-
+import java.util.List;
 
 import br.ufrpe.geekMart.classesBasicas.*;
 
 public class RepositorioUsuario {
 	
 	private Usuario[] usuarios = new Usuario[20];;
+	private List<Usuario> listaUsuarios = null;
 	private Usuario user;
 	private int proxima;
 	
-	private static RepositorioUsuario instancia;
+	private static RepositorioUsuario instancia = new RepositorioUsuario(50);
 
 	public static RepositorioUsuario getInstancia() {
 		
@@ -24,8 +25,8 @@ public class RepositorioUsuario {
 		this.usuarios = new Usuario[tamanho];
 		this.proxima = 0;
 	}
-	
-	public void cadastrar(Usuario c){
+
+	public void cadastrarUsuario(Usuario c){
 	    boolean r = this.existe(c.getCpf());
 	    if (r == false) {
             this.usuarios[this.proxima] = c;
@@ -62,6 +63,7 @@ public class RepositorioUsuario {
 		}
 	 	return i;
 	}
+
 	public Usuario procurar(String num){
 		int i = this.procurarIndice(num);
 		Usuario resultado = null;
@@ -70,6 +72,7 @@ public class RepositorioUsuario {
 		}
 		return resultado;
 	}
+
 	public void remover(String num){
 		int i = this.procurarIndice(num);
 		if (i != this.proxima){
@@ -80,6 +83,7 @@ public class RepositorioUsuario {
 			
 		}
 	}
+
 	public boolean autenticarLogin(String senha, String cpf) {
 		boolean retorno = false;
 		boolean equivale;
@@ -99,7 +103,7 @@ public class RepositorioUsuario {
 		}
 		return existe;
 	}
-	private void duplicaArrayUsuarios(){
+	public void duplicaArrayUsuarios(){
 		if(this.usuarios != null && this.usuarios.length>0){
 			Usuario[] arrayDuplicado = new Usuario[this.usuarios.length*2];
 			for(int i=0 ; i< this.usuarios.length; i++){
@@ -108,6 +112,7 @@ public class RepositorioUsuario {
 			this.usuarios = arrayDuplicado;
 		}
 	}
+
 	public void alterarUsuario(Usuario usuario){
 		int indice = this.procurarIndice(usuario.getCpf());
 		if (indice != this.proxima) {

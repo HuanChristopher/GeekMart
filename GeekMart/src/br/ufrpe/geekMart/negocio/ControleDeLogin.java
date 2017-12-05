@@ -8,7 +8,7 @@ public class ControleDeLogin {
 		private ControladorUsuario cadastroUser;
 		private static ControleDeLogin instancia;
 
-		private static ControleDeLogin getInstancia() {
+		public static ControleDeLogin getInstancia() {
 			if (instancia == null) {
 				instancia = new ControleDeLogin();
 			}
@@ -22,12 +22,8 @@ public class ControleDeLogin {
 		}
 
 		public boolean autenticarLogin(String senha, String cpf) {
-			/*CaixaTextoLogin texfield = new CaixaTextoLogin();
 
-			texfield.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			texfield.setSize(310,180);
-			texfield.setVisible(true);*/
-			return this.cadastroUser.autenticarLogin(/*texfield.getUsuario(), texfield.getSenha()*/senha, cpf);
+			return this.cadastroUser.autenticarLogin(senha, cpf);
 		}
 
 	}

@@ -8,8 +8,7 @@ public class RepositorioAnuncio {
 	
 	private Anuncio[] anuncios;
 	private int proxima;
-	
-	private static RepositorioAnuncio instancia;
+	private static RepositorioAnuncio instancia = new RepositorioAnuncio(50);
 	public static RepositorioAnuncio getInstancia() {
 		
 		return instancia;
@@ -23,9 +22,15 @@ public class RepositorioAnuncio {
 		this.proxima = 0;
 	}
 	
-	public void cadastrar(Anuncio c){
-		this.anuncios[this.proxima] = c;
-		this.proxima = this.proxima +1;
+	public void cadastrar(Anuncio c) {
+		boolean r = this.existe(c.getTitulo());
+		if (r == false) {
+			this.anuncios[this.proxima] = c;
+			this.proxima = this.proxima + 1;
+			if (this.proxima == this.anuncios.length) {
+				this.duplicaArrayAnuncios();
+			}
+		}
 	}
 	private int procurarIndice(String num){
 		int i = 0;

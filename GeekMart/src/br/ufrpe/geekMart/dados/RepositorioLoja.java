@@ -10,7 +10,7 @@ public class RepositorioLoja {
 	
 	private Loja[] lojas;
 	private int proxima;	
-	private static RepositorioLoja instancia;
+	private static RepositorioLoja instancia = new RepositorioLoja(50);
 	public static RepositorioLoja getInstancia() {
 		
 		return instancia;
@@ -26,7 +26,8 @@ public class RepositorioLoja {
 	
 	public void cadastrar(Usuario user, Loja c){
 	    boolean r = this.existe(c.getNome());
-	    if (r == false) {
+		boolean s = this.existe(user.getCpf());
+	    if (r == false && s == true) {
             this.lojas[this.proxima] = c;
             this.proxima = this.proxima +1;
             if (this.proxima == lojas.length) {
