@@ -20,7 +20,7 @@ public class Anuncio {
 	public Anuncio(){
 		
 	}
-	public Anuncio(Cliente cliente, double preco, String titulo, String descricao, Categoria categoria, String cep,
+	public Anuncio (Cliente cliente, double preco, String titulo, String descricao, Categoria categoria, String cep,
 			String estado) {
 		this.cliente = cliente;
 		this.preco = preco;
@@ -79,7 +79,7 @@ public class Anuncio {
 	}
 
 	
-	public boolean equals(Anuncio c){
+	public boolean equals (Anuncio c) {
 		boolean r;
 		if(c != null && this.titulo != null && this.categoria != null){
 			r = (this.titulo.equals(c.getTitulo()) && this.categoria.equals(c.getCategoria()));

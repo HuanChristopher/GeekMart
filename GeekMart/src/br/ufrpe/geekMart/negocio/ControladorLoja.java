@@ -7,19 +7,10 @@ import br.ufrpe.geekMart.dados.RepositorioLoja;
 
 public class ControladorLoja {
 	
-	private static ControladorLoja instancia;
 	private RepositorioLoja repositorio;
 	
-	
-	private ControladorLoja() {
+	public ControladorLoja() {
 		this.repositorio = RepositorioLoja.getInstancia();
-	}
-
-	public static ControladorLoja getInstancia() {
-		if (instancia == null) {
-			instancia = new ControladorLoja();
-		}
-		return instancia;
 	}
 	
 	public void cadastrarLoja(Usuario user, Loja loja){
