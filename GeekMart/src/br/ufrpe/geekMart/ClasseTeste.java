@@ -20,13 +20,10 @@ public class ClasseTeste {
         Cliente cliente = new Cliente();
         Anuncio anuncio = new Anuncio();
         Loja loja = new Loja();
-        RepositorioUsuario repo = RepositorioUsuario.getInstancia();
-        RepositorioAnuncio anun = RepositorioAnuncio.getInstancia();
-        RepositorioLoja loj = RepositorioLoja.getInstancia();
         Fachada fachada = Fachada.getInstancia();
         String nome, cpf, telefone, email, descricao;
         String logradouro, numero, bairro, cidade, estado, cep, complemento, senha;
-        String login, password, titulo, cep2, estado2, titulod, titulop, tituloa, tituloj;
+        String login = null, password = null, titulo, cep2, estado2, titulod, titulop, tituloa, tituloj;
         double preco;
         Endereco adress = new Endereco();
         boolean loop = true, loop2 = true, loop3 = true, loop4 = true, loop5=true,loop6=true;
@@ -142,7 +139,6 @@ public class ClasseTeste {
                                 "[5]CRIAR LOJA\n[6]DELETAR LOJA\n[7]PROCURAR LOJA\n[8]ALTERAR LOJA\n" +
                                 "[9]ALTERAR CADASTRO");
                         int choice03 = scan.nextInt();
-                        scan.next();
                         switch (choice03) {
                             case 1: {
                                 anuncio.setCliente(cliente);
@@ -152,7 +148,6 @@ public class ClasseTeste {
                                 anuncio.setTitulo(titulo);
                                 System.out.println("Informar preço do anúncio:");
                                 preco = scan.nextDouble();
-                                scan.nextDouble();
                                 anuncio.setPreco(preco);
                                 System.out.println("Informar descrição do anúncio:");
                                 descricao = scan.nextLine();
@@ -238,16 +233,13 @@ public class ClasseTeste {
                                 estado2 = scan.nextLine();
                                 scan.next();
                                 loja.setEstado(estado2);
-                                fachada.novaLoja(cliente, loja);
+                                fachada.novaLoja(login, loja);
                                 System.out.println("~~~LOJA CRIADA~~~");
                                 break;
                             }
 
                             case 6: {
-                                System.out.println("Informar nome da loja que será deletada:");
-                                titulod = scan.nextLine();
-                                scan.next();
-                                fachada.removerLoja(titulod);
+                                fachada.removerLoja(login);
                                 System.out.println("~~~LOJA DELETADA~~~");
                                 break;
                             }
@@ -257,30 +249,33 @@ public class ClasseTeste {
                                 titulop = scan.nextLine();
                                 scan.next();
                                 Loja tempo = fachada.buscarLoja(titulop);
-                                System.out.println("A LOJA "+tempo.getNome()+" foi encontrada.");
+                                if (tempo != null) {
+                                    System.out.println("A loja " + tempo.getNome() + " foi encontrada.");
+                                }
+                                else {
+                                    System.out.println("A loja não foi encontrada.");
+                                }
                                 break;
                             }
 
                             case 8: {
-                                System.out.println("Informar nome da loja que será alterada:");
-                                tituloa = scan.nextLine();
-                                scan.next();
-                                System.out.println("Informar título do loja:");
+                                System.out.println("Informar novo título do loja:");
                                 tituloj = scan.nextLine();
                                 scan.next();
-                                fachada.buscarLoja(tituloa).setNome(tituloj);
-                                System.out.println("Informar descrição da loja:");
+                                loja.setNome(tituloj);
+                                System.out.println("Informar nova descrição da loja:");
                                 descricao = scan.nextLine();
                                 scan.next();
-                                fachada.buscarLoja(tituloa).setDescricao(descricao);
-                                System.out.println("Informar cep:");
+                                loja.setDescricao(descricao);
+                                System.out.println("Informar novo cep:");
                                 cep2 = scan.nextLine();
                                 scan.next();
-                                fachada.buscarLoja(tituloa).setCep(cep2);
-                                System.out.println("Informar estado:");
+                                loja.setCep(cep2);
+                                System.out.println("Informar novo estado:");
                                 estado2 = scan.nextLine();
                                 scan.next();
-                                fachada.buscarLoja(tituloa).setEstado(estado2);
+                                loja.setEstado(estado2);
+                                fachada.alterarLoja(login, loja);
                                 System.out.println("~~~LOJA ALTERADA~~~");
                                 break;
                             }
