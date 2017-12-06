@@ -71,20 +71,20 @@ public class Fachada {
 
 		
 
-		public void novaLoja(Usuario user, Loja loja) {
-			this.cadastroLoja.cadastrarLoja(user, loja);
+		public void novaLoja(String cpf, Loja loja) {
+			this.cadastroLoja.cadastrarLoja(cpf, loja);
 		}
 
 		public Loja buscarLoja(String nome) {
 			return this.cadastroLoja.buscarLoja(nome);
 		}
 
-		public void removerLoja(String titulo) {
-			this.cadastroLoja.removerLoja(titulo);
+		public void removerLoja(String cpf) {
+			this.cadastroLoja.removerLoja(cpf);
 		}
 
-		public void alterarLoja(Usuario user, Loja loja) {
-			this.cadastroLoja.cadastrarLoja(user, loja);
+		public void alterarLoja(String cpf, Loja loja) {
+			this.cadastroLoja.alterarLoja(cpf, loja);
 		}
 
 		

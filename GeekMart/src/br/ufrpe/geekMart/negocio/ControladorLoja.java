@@ -1,8 +1,6 @@
 package br.ufrpe.geekMart.negocio;
 
-
 import br.ufrpe.geekMart.classesBasicas.Loja;
-import br.ufrpe.geekMart.classesBasicas.Usuario;
 import br.ufrpe.geekMart.dados.RepositorioLoja;
 
 public class ControladorLoja {
@@ -13,14 +11,15 @@ public class ControladorLoja {
 		this.repositorio = RepositorioLoja.getInstancia();
 	}
 	
-	public void cadastrarLoja(Usuario user, Loja loja){
-		if(user != null){
-			boolean  existe = this.repositorio.existe(user.getNome());
+	public void cadastrarLoja (String cpf, Loja loja){
+		if(cpf != null && loja != null){
+			boolean existe = this.repositorio.existeCpf(cpf);
 			if (existe != true){
-				this.repositorio.cadastrar(user, loja);
+				this.repositorio.cadastrar(loja);
 			}
 		}
 	}
+
 	public Loja buscarLoja(String titulo){
 		Loja retorno = null;
 		if(titulo != null){
@@ -28,14 +27,20 @@ public class ControladorLoja {
 		}
 		return retorno;
 	}
-	public void removerLoja(String titulo){
-		if(titulo != null){
-			if(this.repositorio.existe(titulo) != false)
-				this.repositorio.remover(titulo);
+
+	public void removerLoja(String cpf){
+		if(cpf != null){
+			if(this.repositorio.existeCpf(cpf) != false)
+				this.repositorio.remover(cpf);
 		}
 	}
-	public void alterarLoja(Loja loja){
-		// Precisa ser implementado
+
+	public void alterarLoja (String cpf, Loja loja) {
+		if (cpf != null && loja != null) {
+			if (this.repositorio.existeCpf(loja.getCliente().getCpf())) {
+				this.repositorio.alterarLoja(cpf, loja);
+			}
+		}
 	}
 
 	public static ControladorLoja getInstancia() {

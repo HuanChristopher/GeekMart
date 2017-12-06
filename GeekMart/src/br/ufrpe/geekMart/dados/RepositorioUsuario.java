@@ -19,12 +19,12 @@ public class RepositorioUsuario {
 		return instancia;
 	}
 
-	private RepositorioUsuario (int tamanho){
+	private RepositorioUsuario (int tamanho) {
 		this.usuarios = new Usuario[tamanho];
 		this.proxima = 0;
 	}
 
-	public void cadastrarUsuario(Usuario c){
+	public void cadastrarUsuario (Usuario c) {
 	    boolean r = this.existe(c.getCpf());
 	    if (r == false) {
             this.usuarios[this.proxima] = c;
