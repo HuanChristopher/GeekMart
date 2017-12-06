@@ -3,6 +3,7 @@ package br.ufrpe.geekMart.classesBasicas;
 
 
 public class Administrador extends Usuario{
+	private boolean adm = true;
 	
 	public Administrador(){
 		
@@ -14,6 +15,10 @@ public class Administrador extends Usuario{
 	@Override
 	public String toString() {
 		return "Nome: " + nome + "\nCpf: " + cpf + "\nEmail: " + email;
+	}
+
+	public boolean getAdm(){
+		return adm;
 	}
 
 }
