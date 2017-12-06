@@ -182,6 +182,7 @@ public class ClasseTeste {
                         System.out.println("~~~ANUNCIO CRIADO~~~");
                         break;
                     }
+                }
                     System.out.println("****MENU CLIENTE****");
                     while (loop3 != false) {
                         System.out.println("[1]CRIAR ANUNCIO\n[2]DELETAR ANUNCIO\n[3]PROCURAR ANUNCIO\n[4]ALTERAR ANUNCIO\n" +
@@ -401,7 +402,8 @@ public class ClasseTeste {
                 }
 
             }
-        }
+
+
 
 
 
