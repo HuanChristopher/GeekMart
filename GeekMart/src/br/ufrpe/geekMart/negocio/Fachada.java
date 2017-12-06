@@ -31,7 +31,7 @@ public class Fachada {
 		}
 		return instancia;
 }
-	
+
 	// USUARIO
 		public void cadastrarUsuario(Usuario user) {
 			this.cadastroUsuario.cadastrarUsuario(user);
@@ -45,7 +45,7 @@ public class Fachada {
 			this.cadastroUsuario.removerUsuario(cpf);
 		}
 
-		
+
 
 		public void adicionarAnuncio(Anuncio anuncio) {
 			this.cadastroAnuncio.cadastrarAnuncio(anuncio);
@@ -55,12 +55,12 @@ public class Fachada {
 			return this.cadastroAnuncio.buscarAnuncio(nome);
 		}
 
-	
+
 		public void removerAnuncio(String titulo) {
 			this.cadastroAnuncio.removerAnuncio(titulo);
 		}
 
-		
+
 		public void alterarAnuncio(Anuncio anuncio) {
 			this.cadastroAnuncio.alterarAnuncio(anuncio);
 		}

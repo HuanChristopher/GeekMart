@@ -6,7 +6,7 @@ import br.ufrpe.geekMart.classesBasicas.Usuario;
 import br.ufrpe.geekMart.dados.RepositorioLoja;
 
 public class ControladorLoja {
-	
+	private static ControladorLoja instancia;
 	private RepositorioLoja repositorio;
 	
 	public ControladorLoja() {
@@ -37,7 +37,13 @@ public class ControladorLoja {
 	public void alterarLoja(Loja loja){
 		// Precisa ser implementado
 	}
-	
+
+	public static ControladorLoja getInstancia() {
+		if (instancia == null) {
+			instancia = new ControladorLoja();
+		}
+		return instancia;
+	}
 	
 	
 

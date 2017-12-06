@@ -4,11 +4,17 @@ import br.ufrpe.geekMart.classesBasicas.Anuncio;
 import br.ufrpe.geekMart.dados.RepositorioAnuncio;
 
 public class ControladorAnuncio {
-
+	private static ControladorAnuncio instancia;
 	private RepositorioAnuncio repositorio;
 	
-	public ControladorAnuncio() {
+	private ControladorAnuncio() {
 		this.repositorio = RepositorioAnuncio.getInstancia();
+	}
+	public static ControladorAnuncio getInstancia() {
+		if (instancia == null) {
+			instancia = new ControladorAnuncio();
+		}
+		return instancia;
 	}
 
 	public void cadastrarAnuncio (Anuncio anuncio) {

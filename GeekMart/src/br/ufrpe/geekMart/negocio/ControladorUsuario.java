@@ -16,7 +16,7 @@ public class ControladorUsuario {
 			instancia = new ControladorUsuario();
 		}
 		return instancia;
-	}
+}
 
 	public void cadastrarUsuario(Usuario user) {
 		if (user != null) {
