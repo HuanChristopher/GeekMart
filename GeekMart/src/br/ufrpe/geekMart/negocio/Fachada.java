@@ -40,6 +40,10 @@ public class Fachada {
 			this.cadastroUsuario.removerUsuario(cpf);
 		}
 
+		public void alterarUsuario (Usuario usuario) {
+			this.cadastroUsuario.alterarUsuario(usuario);
+		}
+
 		
 
 		public void adicionarAnuncio(Anuncio anuncio) {

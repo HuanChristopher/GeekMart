@@ -329,6 +329,7 @@ public class ClasseTeste {
                                 senha = scan.nextLine();
                                 scan.next();
                                 cliente.setSenha(senha);
+                                fachada.alterarUsuario(cliente);
                                 System.out.println("~~CADASTRO ALTERADO~~");
                                 break;
                             }
