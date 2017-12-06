@@ -6,7 +6,7 @@ import br.ufrpe.geekMart.classesBasicas.*;
 
 public class RepositorioUsuario {
 	
-	private Usuario[] usuarios = new Usuario[20];;
+	private Usuario[] usuarios = new Usuario[20];
 	private List<Usuario> listaUsuarios = null;
 	private Usuario user;
 	private int proxima;
@@ -86,11 +86,13 @@ public class RepositorioUsuario {
 
 	public boolean autenticarLogin(String senha, String cpf) {
 		boolean retorno = false;
-		boolean equivale;
 		user = this.procurar(cpf);
-		equivale = user.verificarSenha(senha);
-		if ((equivale != false) && (user.getAtivo() == true)) {
-			retorno = true;
+		boolean tipo = user.getAtivo();
+		if (tipo != false) {
+			boolean equivale = user.getSenha().equals(senha);
+			if (equivale != false) {
+				retorno = true;
+			}
 		}
 		return retorno;
 	}

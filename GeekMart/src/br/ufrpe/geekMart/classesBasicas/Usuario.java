@@ -52,13 +52,13 @@ public class Usuario {
 		this.cpf=cpf;
 	}
 	
-	private String getSenha(){
+	public String getSenha(){
 		return senha;
 	}
 
 	public boolean verificarSenha (String senha) {
 		boolean r = false;
-		if (this.getSenha().equals(senha)) {
+		if (this.senha.equals(senha)) {
 			r = true;
 		}
 		return r;

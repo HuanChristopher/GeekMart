@@ -1,10 +1,11 @@
 package br.ufrpe.geekMart.negocio;
-import br.ufrpe.geekMart.gui.*;
 
-import javax.swing.*;
+
+
 
 public class ControleDeLogin {
 
+		private ControladorAdministrador cadastroAdm ;
 		private ControladorUsuario cadastroUser;
 		private static ControleDeLogin instancia;
 
@@ -15,15 +16,23 @@ public class ControleDeLogin {
 			return instancia;
 		}
 
+
+
 		private ControleDeLogin() {
 
 			this.cadastroUser = ControladorUsuario.getInstancia();
+			this.cadastroAdm = ControladorAdministrador.getInstancia();
 
 		}
 
 		public boolean autenticarLogin(String senha, String cpf) {
 
 			return this.cadastroUser.autenticarLogin(senha, cpf);
+		}
+
+		public boolean autenticarLoginAdm(String senha, String cpf) {
+
+			return this.cadastroAdm.autenticarLoginAdm(senha, cpf);
 		}
 
 	}

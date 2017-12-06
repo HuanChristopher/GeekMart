@@ -50,12 +50,6 @@ public class ControladorUsuario {
 		return retorno;
 	}
 
-	public static ControladorUsuario getControlador() {
-		if (instancia == null) {
-			instancia = new ControladorUsuario();
-		}
-		return instancia;
-	}
 
 	public void bloquearUsuario (String cpf) {
 	    if (cpf != null) {
