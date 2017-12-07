@@ -26,13 +26,14 @@ public class Categoria {
 		categorias[16] = "DC";
 	}
 
-	public String[] getCategorias() {
-		return categorias;
+	public String getCategorias(int i) {
+		return categorias[i];
 	}
 
 	public void setCategorias(int num, String novaCategoria) {
 		this.categorias[num] = novaCategoria;
 	}
+
 
 
 }

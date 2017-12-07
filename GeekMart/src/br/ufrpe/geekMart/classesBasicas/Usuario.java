@@ -10,6 +10,7 @@ public class Usuario {
 		this.email=email;
 		this.cpf=cpf;
 		this.senha=senha;
+		this.ativo =true;
 	}
 	
 	public Usuario(){

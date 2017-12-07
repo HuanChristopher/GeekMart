@@ -1,6 +1,7 @@
 package br.ufrpe.geekMart.dados;
 
 import br.ufrpe.geekMart.classesBasicas.Anuncio;
+import br.ufrpe.geekMart.classesBasicas.Categoria;
 
 
 
@@ -8,6 +9,7 @@ public class RepositorioAnuncio {
 	
 	private Anuncio[] anuncios;
 	private int proxima;
+	private Categoria categoria;
 	private static RepositorioAnuncio instancia;
 
 	public static RepositorioAnuncio getInstancia () {
@@ -89,4 +91,6 @@ public class RepositorioAnuncio {
 		    this.anuncios[i] = anuncio;
         }
 	}
+
+	
 }
