@@ -104,6 +104,8 @@ public class ClasseTeste {
                         System.out.println("Escolha uma senha:");
                         senha = scan.nextLine();
                         cliente.setSenha(senha);
+                        cliente.setAnuncios(anuncio);
+                        cliente.setLoja(loja);
                         System.out.println("~~CADASTRO COMPLETO~~");
                         fachada.cadastrarUsuario(cliente);
                         System.out.println("Cliente: " + nome);
@@ -203,6 +205,7 @@ public class ClasseTeste {
                         anuncio.setEstado(estado2);
                         //anuncio.getCategoria();
                         fachada.adicionarAnuncio(anuncio);
+                        cliente.setAnuncios(anuncio);
                         System.out.println("~~~ANUNCIO CRIADO~~~");
                         System.out.println("Título: "+titulo);
                         System.out.println("Preço: "+preco);
@@ -282,7 +285,9 @@ public class ClasseTeste {
                                 System.out.println("Informar estado:");
                                 estado2 = scan.nextLine();
                                 loja.setEstado(estado2);
+                                loja.setAnuncios(cliente.getAnuncios());
                                 fachada.novaLoja(login, loja);
+                                cliente.setLoja(loja);
                                 System.out.println("~~~LOJA CRIADA~~~");
                             System.out.println("Título: "+tituloj);
                             System.out.println("Dono da Loja: "+cliente.getNome());

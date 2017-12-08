@@ -11,7 +11,7 @@ public class Cliente extends Usuario{
 	private Loja loja;
 	
 	public Cliente(){
-		
+
 	}
 	
 	public Cliente (String nome, String cpf, String email, String telefone, Endereco endereco, String senha){
@@ -20,6 +20,8 @@ public class Cliente extends Usuario{
 		this.telefone = telefone;
 		this.endereco = new Endereco(endereco.getLogradouro(), endereco.getNumero(), endereco.getBairro(), endereco.getCidade(), endereco.getEstado(), endereco.getCep(),
 				endereco.getComplemento());
+		this.anuncios = anuncios;
+		this.loja = loja;
 	
 	}
 

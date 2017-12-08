@@ -9,16 +9,20 @@ public class Loja {
 	private ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
 	private int tamanho = anuncios.size();
 	
+
 	public Loja(){
-		
+
 	}
 
-	public Loja(String nome, String descricao, String cep, String estado, String telefone){
+	public Loja(String nome, String descricao, String cep, String estado, String telefone,Cliente cliente){
 		this.nome = nome;
 		this.descricao = descricao;
 		this.cep = cep;
 		this.estado = estado;
 		this.telefone = telefone;
+		this.cliente = cliente;
+		this.anuncios = cliente.getAnuncios();
+
 	}
 
 	public String getNome() {
