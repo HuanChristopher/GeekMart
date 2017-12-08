@@ -8,129 +8,156 @@ import java.util.Scanner;
 public class ClasseTeste {
 
     public static void main(String[] args) {
-
-        Scanner scan = new Scanner(System.in);
-
-
-        Cliente cliente = new Cliente();
-        Anuncio anuncio = new Anuncio();
-        Loja loja = new Loja();
-        Fachada fachada = Fachada.getInstancia();
-        String nome, cpf, telefone, email;
-        String logradouro, numero, bairro, cidade, estado, cep, complemento, senha;
-        String login = null, password = null, titulo, cep2, estado2, titulod, titulop, tituloa, tituloj;
-        double preco;
-        Endereco adress = new Endereco();
-        boolean loop = true, loop2 = true;
-        ControleDeLogin loginn = ControleDeLogin.getInstancia();
-        boolean retorno, retorno2;
-
-
-
-        System.out.println("#############################################################");
-        System.out.println("##~~~~~~~~~~~~~~~~~~~~~~~GEEKMART~~~~~~~~~~~~~~~~~~~~~~~~~~##");
-        System.out.println("#############################################################");
-
-
-        System.out.println("BEM VINDO AO GEEKMART\nESCOLHA SUA OPÇÃO:");
-        while (loop != false) {
-            System.out.println("VOCÊ JÁ POSSUI CADASTRO?");
-            System.out.println("[1] NÃO\n[2] SIM");
-            String schoice01 = scan.nextLine();
-            int choice01 = Integer.valueOf(schoice01);
-
-            switch (choice01) {
-
-                case 1:
-                    System.out.println("~~~~NOVO CADASTRO DE CLIENTE~~~~");
-                    System.out.println("Informar nome do cliente:");
-                    nome = scan.nextLine();
-                    cliente.setNome(nome);
-                    System.out.println("Informar CPF:");
-                    cpf = scan.nextLine();
-                    cliente.setCpf(cpf);
-                    System.out.println("Informar endereço:");
-                    System.out.println("A)Logradouro:");
-                    logradouro = scan.nextLine();
-                    adress.setLogradouro(logradouro);
-                    System.out.println("Informar numero:");
-                    numero = scan.nextLine();
-                    adress.setNumero(numero);
-                    System.out.println("Informar bairro:");
-                    bairro = scan.nextLine();
-                    adress.setBairro(bairro);
-                    System.out.println("Informar cidade:");
-                    cidade = scan.nextLine();
-                    adress.setCidade(cidade);
-                    System.out.println("Informar estado:");
-                    estado = scan.nextLine();
-                    adress.setEstado(estado);
-                    System.out.println("Informar CEP:");
-                    cep = scan.nextLine();
-                    adress.setCep(cep);
-                    System.out.println("Informar complemento:");
-                    complemento = scan.nextLine();
-                    adress.setComplemento(complemento);
-                    cliente.setEndereco(adress);
-                    System.out.println("Informar telefone:");
-                    telefone = scan.nextLine();
-                    cliente.setTelefone(telefone);
-                    System.out.println("Informar email:");
-                    email = scan.nextLine();
-                    cliente.setEmail(email);
-                    System.out.println("Escolha uma senha:");
-                    senha = scan.nextLine();
-                    cliente.setSenha(senha);
-                    System.out.println("~~CADASTRO COMPLETO~~");
-                    fachada.cadastrarUsuario(cliente);
-                    System.out.println("Cliente: "+nome);
-                    System.out.println("CPF: "+cpf);
-                    System.out.println("Endereço: "+logradouro+","+numero+" "+"("+complemento+") "+bairro+" "+cidade+" "+" "+estado+" "+cep+" ");
-                    System.out.println("Telefone: "+telefone);
-                    System.out.println("Email: "+email);
-
-                    loop = false;
-                    break;
-
-                case 2:
-                    loop = false;
-                    System.out.println("~~~~~~~~~~");
-                    break;
-
-                default:
-                    System.out.println("~~Opção Incorreta~~");
-                    break;
-            }
-        }
-
-        System.out.println("****FAZER LOGIN****");
-        while (loop2 != false) {
-
-            System.out.println("Cliente, digite seu cpf :");
-            login = scan.nextLine();
-            //scan.next();
-            System.out.println("Cliente, digite sua senha:");
-            password = scan.nextLine();
-           // scan.next();
-            retorno = loginn.autenticarLoginAdm(password, login);
-            if (retorno != true) {
-                retorno2 = loginn.autenticarLogin(password, login);
-                if (retorno2 == false) {
-                    System.out.println("Login falhou.Tente Novamente.");
-                } else {
-                    System.out.println("Cliente " + fachada.buscaUsuario(login).getNome() + " logado com sucesso.");
-                    loop2 = false;
-                    ClasseTeste.MenuCliente(login);
-                }
-            } else {
-                System.out.println("Administrador " + fachada.buscarAdministrador(login).getNome() + " logado com sucesso.");
-
-                loop2 = false;
-                ClasseTeste.MenuAdm();
-            }
-
-        }
+        ClasseTeste.MenuInicial();
     }
+
+        public static void MenuInicial(){
+            Scanner scan = new Scanner(System.in);
+            Fachada fachada = Fachada.getInstancia();
+            Endereco batcaverna = new Endereco();
+            Cliente cliente = new Cliente();
+            Cliente cTeste = new Cliente();
+            cTeste.setNome("Bruce Wayne");
+            cTeste.setCpf("123456789");
+            cTeste.setEmail("batman@waynecompany.com");
+            cTeste.setTelefone("9999-9999");
+            cTeste.setSenha("robin");
+            cTeste.setEndereco(batcaverna);
+            batcaverna.setLogradouro("Alameda do Morcego");
+            batcaverna.setNumero("666");
+            batcaverna.setBairro("Vamp");
+            batcaverna.setCidade("Gothan");
+            batcaverna.setEstado("PE");
+            batcaverna.setCep("987654-321");
+            batcaverna.setComplemento("Caverna");
+            fachada.cadastrarUsuario(cTeste);
+            Anuncio anuncio = new Anuncio();
+            Loja loja = new Loja();
+            String nome, cpf, telefone, email;
+            String logradouro, numero, bairro, cidade, estado, cep, complemento, senha;
+            String login = null, password = null, titulo, cep2, estado2, titulod, titulop, tituloa, tituloj;
+            double preco;
+            Endereco adress = new Endereco();
+            boolean loop = true, loop2 = true;
+            ControleDeLogin loginn = ControleDeLogin.getInstancia();
+            boolean retorno, retorno2;
+            Administrador adm = new Administrador();
+            Administrador administ = new Administrador();
+            administ.setCpf("cpfteste");
+            administ.setSenha("senhateste");
+            administ.setNome("Adm");
+            administ.setEmail("adm@adm");
+            fachada.cadastrarAdministrador(administ);
+
+
+            System.out.println("#############################################################");
+            System.out.println("##~~~~~~~~~~~~~~~~~~~~~~~GEEKMART~~~~~~~~~~~~~~~~~~~~~~~~~~##");
+            System.out.println("#############################################################");
+
+
+            System.out.println("BEM VINDO AO GEEKMART\nESCOLHA SUA OPÇÃO:");
+            while (loop != false) {
+                System.out.println("VOCÊ JÁ POSSUI CADASTRO?");
+                System.out.println("[1] NÃO\n[2] SIM");
+                String schoice01 = scan.nextLine();
+                int choice01 = Integer.valueOf(schoice01);
+
+                switch (choice01) {
+
+                    case 1:
+                        System.out.println("~~~~NOVO CADASTRO DE CLIENTE~~~~");
+                        System.out.println("Informar nome do cliente:");
+                        nome = scan.nextLine();
+                        cliente.setNome(nome);
+                        System.out.println("Informar CPF:");
+                        cpf = scan.nextLine();
+                        cliente.setCpf(cpf);
+                        System.out.println("Informar endereço:");
+                        System.out.println("A)Logradouro:");
+                        logradouro = scan.nextLine();
+                        adress.setLogradouro(logradouro);
+                        System.out.println("Informar numero:");
+                        numero = scan.nextLine();
+                        adress.setNumero(numero);
+                        System.out.println("Informar bairro:");
+                        bairro = scan.nextLine();
+                        adress.setBairro(bairro);
+                        System.out.println("Informar cidade:");
+                        cidade = scan.nextLine();
+                        adress.setCidade(cidade);
+                        System.out.println("Informar estado:");
+                        estado = scan.nextLine();
+                        adress.setEstado(estado);
+                        System.out.println("Informar CEP:");
+                        cep = scan.nextLine();
+                        adress.setCep(cep);
+                        System.out.println("Informar complemento:");
+                        complemento = scan.nextLine();
+                        adress.setComplemento(complemento);
+                        cliente.setEndereco(adress);
+                        System.out.println("Informar telefone:");
+                        telefone = scan.nextLine();
+                        cliente.setTelefone(telefone);
+                        System.out.println("Informar email:");
+                        email = scan.nextLine();
+                        cliente.setEmail(email);
+                        System.out.println("Escolha uma senha:");
+                        senha = scan.nextLine();
+                        cliente.setSenha(senha);
+                        System.out.println("~~CADASTRO COMPLETO~~");
+                        fachada.cadastrarUsuario(cliente);
+                        System.out.println("Cliente: " + nome);
+                        System.out.println("CPF: " + cpf);
+                        System.out.println("Endereço: " + logradouro + "," + numero + " " + "(" + complemento + ") " + bairro + " " + cidade + " " + " " + estado + " " + cep + " ");
+                        System.out.println("Telefone: " + telefone);
+                        System.out.println("Email: " + email);
+
+                        loop = false;
+                        break;
+
+                    case 2:
+                        loop = false;
+                        System.out.println("~~~~~~~~~~");
+                        break;
+
+                    default:
+                        System.out.println("~~Opção Incorreta~~");
+                        break;
+                }
+            }
+
+            System.out.println("****FAZER LOGIN****");
+            while (loop2 != false) {
+
+                System.out.println("Cliente, digite seu cpf :");
+                login = scan.nextLine();
+                System.out.println("Cliente, digite sua senha:");
+                password = scan.nextLine();
+                retorno = loginn.autenticarLoginAdm(password, login);
+                if (retorno != true) {
+                    retorno2 = loginn.autenticarLogin(password, login);
+                    if (retorno2 == false) {
+                        System.out.println("Login falhou.Tente Novamente.");
+                    } else {
+                        System.out.println("Cliente " + fachada.buscaUsuario(login).getNome() + " logado com sucesso.");
+                        loop2 = false;
+                        ClasseTeste.MenuCliente(login);
+                    }
+                } else {
+                    System.out.println("Administrador " + fachada.buscarAdministrador(login).getNome() + " logado com sucesso.");
+
+                    loop2 = false;
+                    ClasseTeste.MenuAdm();
+                }
+
+            }
+
+        }
+
+
+
+
+
 
 
         public static void MenuCliente(String login) {
@@ -152,7 +179,7 @@ public class ClasseTeste {
             while (loop3 != false) {
                 System.out.println("[1]CRIAR ANUNCIO\n[2]DELETAR ANUNCIO\n[3]PROCURAR ANUNCIO\n[4]ALTERAR ANUNCIO\n" +
                         "[5]CRIAR LOJA\n[6]DELETAR LOJA\n[7]PROCURAR LOJA\n[8]ALTERAR LOJA\n" +
-                        "[9]ALTERAR CADASTRO");
+                        "[9]ALTERAR CADASTRO\n[10]SAIR");
                 int choice03 = scan.nextInt();
                 scan.nextLine();
                 switch (choice03) {
@@ -357,6 +384,10 @@ public class ClasseTeste {
                                 break;
                             }
 
+                    case 10:{
+                        ClasseTeste.MenuInicial();
+                    }
+
 
                         default: {
                                 System.out.println("Opção inválida, tente novamente.");
@@ -382,77 +413,88 @@ public class ClasseTeste {
             Scanner scan = new Scanner(System.in);
             Fachada fachada = Fachada.getInstancia();
             String titulod, titulop, nome, cpf, email, senha;
-            boolean loop5 = true,loop6=true;
+            boolean loop6=true;
             Administrador adm = new Administrador();
             System.out.println("****MENU ADMINISTRADOR****");
 
-                    while (loop5 != false) {
-                        adm.setCpf("cpfteste");
-                        adm.setSenha("senhateste");
-                        adm.setNome("Adm");
-                        adm.setEmail("adm@adm");
-                        fachada.cadastrarUsuario(adm);
-                        System.out.println("Adm, digite seu cpf :");
-                        String login2 = scan.nextLine();
-                        System.out.println("Adm, digite sua senha:");
-                        String password2 = scan.nextLine();
-                        boolean al2 = fachada.autenticarLogin(password2, login2);
-
-                        if (al2 == true) {
-                            System.out.println("****MENU ADMINISTRADOR****");
-                            loop5 = false;
-                        } else {
-                            System.out.println("*** SENHA OU LOGIN ERRADO****");
-                        }
-                    }
                     while (loop6 != false) {
                         System.out.println("[1]BLOQUEAR CLIENTE\n[2]DELETAR ANUNCIO\n[3]PROCURAR ANUNCIO\n[4]DELETAR CLIENTE\n" +
                                 "[5]DESBLOQUEAR CLIENTE\n[6]PROCURAR CLIENTE\n[7]CADASTRAR NOVO ADM\n" +
-                                "[8]ALTERAR CADASTRO");
+                                "[8]ALTERAR CADASTRO\n[9]SAIR");
                         int choice04 = scan.nextInt();
-                        scan.next();
+                        scan.nextLine();
                         switch (choice04) {
                             case 1: {
                                 System.out.println("Informar CPF do Cliente que será Bloqueado:");
                                 String cpfbloc = scan.nextLine();
-                                fachada.bloquearUsuario(cpfbloc);
-                                System.out.println("~~~USUARIO BLOQUEADO~~~");
+                                Usuario temp = fachada.buscaUsuario(cpfbloc);
+                                if (temp != null) {
+                                    fachada.bloquearUsuario(cpfbloc);
+                                    System.out.println("~~~USUARIO BLOQUEADO~~~");
+                                } else {
+                                    System.out.println("Cliente não foi encontrado.");
+                                }
+
                                 break;
                             }
                             case 2: {
                                 System.out.println("Informar título do anúncio que será deletado:");
                                 titulod = scan.nextLine();
-                                fachada.removerAnuncio(titulod);
-                                System.out.println("~~~ANUNCIO DELETADO~~~");
+                                Anuncio temp = fachada.buscarAnuncio(titulod);
+                                if (temp != null) {
+                                    fachada.removerAnuncio(titulod);
+                                    System.out.println("~~~ANUNCIO DELETADO~~~");
+                                } else {
+                                    System.out.println("Anuncio não foi encontrado.");
+                                }
+
                                 break;
                             }
                             case 3: {
                                 System.out.println("Informar título do anúncio que será procurado:");
                                 titulop = scan.nextLine();
                                 Anuncio temp = fachada.buscarAnuncio(titulop);
-                                temp.toString();
+                                if (temp != null) {
+                                    System.out.println("~~~ANUNCIO ENCONTRADO~~~");
+                                } else {
+                                    System.out.println("Anuncio não foi encontrado.");
+                                }
                                 break;
                             }
                             case 4: {
                                 System.out.println("Informar CPF do Cliente que será deletado:");
                                 String num = scan.nextLine();
                                 Usuario t = fachada.buscaUsuario(num);
-                                fachada.removerUsuario(t.getCpf());
-                                System.out.println("~~~CLIENTE DELETADO~~~");
+                                if (t != null) {
+                                    fachada.removerUsuario(t.getCpf());
+                                    System.out.println("~~~CLIENTE DELETADO~~~");
+                                } else {
+                                    System.out.println("Cliente não foi encontrado.");
+                                }
                                 break;
                             }
                             case 5: {
                                 System.out.println("Informar CPF do Cliente que será Desbloqueado:");
                                 String cpfunbloc = scan.nextLine();
-                                fachada.desbloquearUsuario(cpfunbloc);
-                                System.out.println("~~~USUARIO DESBLOQUEADO~~~");
+                                Usuario t = fachada.buscaUsuario(cpfunbloc);
+                                if (t != null) {
+                                    fachada.desbloquearUsuario(cpfunbloc);
+                                    System.out.println("~~~USUARIO DESBLOQUEADO~~~");
+                                } else {
+                                    System.out.println("Cliente não foi encontrado.");
+                                }
+
                                 break;
                             }
                             case 6: {
                                 System.out.println("Informar CPF do cliente que será procurado:");
                                 String num2 = scan.nextLine();
                                 Usuario t2 = fachada.buscaUsuario(num2);
-                                t2.toString();
+                                if (t2 != null) {
+                                    System.out.println("Cliente achado foi o: "+t2.getNome());
+                                } else {
+                                    System.out.println("Cliente não foi encontrado.");
+                                }
                                 break;
                             }
                             case 7: {
@@ -470,7 +512,10 @@ public class ClasseTeste {
                                 senha = scan.nextLine();
                                 adm.setSenha(senha);
                                 System.out.println("~~CADASTRO COMPLETO~~");
-                                fachada.cadastrarUsuario(adm);
+                                fachada.cadastrarAdministrador(adm);
+                                System.out.println("Nome: "+nome);
+                                System.out.println("CPF: "+cpf);
+                                System.out.println("email: "+email);
                                 break;
                             }
                             case 8: {
@@ -482,7 +527,12 @@ public class ClasseTeste {
                                 senha = scan.nextLine();
                                 adm.setSenha(senha);
                                 System.out.println("~~CADASTRO COMPLETO~~");
+                                System.out.println("email: "+email);
                                 break;
+                            }
+
+                            case 9:{
+                                ClasseTeste.MenuInicial();
                             }
                             default: {
                                 System.out.println("Opção inválida, tente novamente.");
