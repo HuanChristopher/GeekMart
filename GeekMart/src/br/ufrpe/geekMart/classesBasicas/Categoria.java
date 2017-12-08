@@ -43,7 +43,7 @@ public class Categoria {
 
 	}
 
-	public static String getCategorias(int i) {
+	public static String getCategoria (int i) {
 		return categorias[i];
 	}
 
