@@ -9,21 +9,38 @@ public class Categoria {
 	public Categoria() {
 		categorias[0] = "Figuras e Estatuas";
 		categorias[1] = "Games";
-		categorias[2] = "Model Kit";
-		categorias[3] = "Cloth Myth";
-		categorias[4] = "Hot Toys";
-		categorias[5] = "Marvel Select";
-		categorias[6] = "Neca";
-		categorias[7] = "Play Arts";
-		categorias[8] = "Pop Funko";
-		categorias[9] = "Outras Estatuas";
-		categorias[10] = "Anime e HQ";
-		categorias[11] = "Vingadores";
-		categorias[12] = "Disney";
-		categorias[13] = "Cavaleiros do Zodiaco";
-		categorias[14] = "Dragon Ball";
-		categorias[15] = "Marvel";
-		categorias[16] = "DC";
+		categorias[2] = "Card Games";
+		categorias[3] = "Camisas";
+		categorias[4] = "Canecas";
+		categorias[5] = "Acessórios";
+		categorias[6] = "Cosplay";
+		categorias[7] = "Outros"; // Base
+		categorias[8] = "Filmes"; //Sub 0,3,4,
+		categorias[9] = "Séries"; //Sub 0,3,4,
+		categorias[10] = "Animes"; //Sub 0,3,4,
+		categorias[11] = "HQs"; //Sub 0,3,4,
+		categorias[12] = "Naruto"; //Sub 10
+		categorias[13] = "Cavaleiros do Zodiaco"; //Sub 10
+		categorias[14] = "Dragon Ball"; //Sub 10
+		categorias[15] = "Marvel"; //Sub 11
+		categorias[16] = "DC"; //Sub 11
+		categorias[17] = "Disney"; //Sub 11
+		categorias[18] = "Yugi-Oh"; //Sub 1
+		categorias[19] = "Magic";  //Sub 1
+		categorias[20] = "Hot Toy";
+		categorias[21] = "S.H.Figuarts";
+		categorias[22] = "Cloth Myth";
+		categorias[23] = "Play Arts";
+		categorias[24] = "POP Funko";
+		categorias[25] = "Iron Studios";
+		categorias[26] = "Breaking Bad";
+		categorias[27] = "Star Wars";
+		categorias[28] = "Harry Potter";
+		categorias[29] = "Senhor dos Anéis";
+		categorias[30] =  "Game of Thrones";
+
+
+
 	}
 
 	public static String getCategorias(int i) {

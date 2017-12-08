@@ -545,7 +545,24 @@ public class ClasseTeste {
                     }
 
                 }
+
+
+
+    public static void MenuCategoria(){
+            System.out.println("~~~~ESCOLHA A CATEGORIA~~~~");
+
+    }
+
+
+
+
+
+
+
+
+
             }
+
 
 
 
