@@ -1,7 +1,7 @@
 package br.ufrpe.geekMart.dados;
 
 import br.ufrpe.geekMart.classesBasicas.Anuncio;
-import br.ufrpe.geekMart.classesBasicas.Categoria;
+import br.ufrpe.geekMart.classesBasicas.Categorias;
 
 
 
@@ -9,7 +9,7 @@ public class RepositorioAnuncio {
 	
 	private Anuncio[] anuncios;
 	private int proxima;
-	private Categoria categoria;
+	private Categorias categoria;
 	private static RepositorioAnuncio instancia;
 
 	public static RepositorioAnuncio getInstancia () {
@@ -48,9 +48,9 @@ public class RepositorioAnuncio {
 	public Anuncio[] getAnunciosCategoria (String categoria) {
 		int i, qt = 0;
 		Anuncio[] result = new Anuncio[this.proxima];
-		int indice = Categoria.encontrarCategoria(categoria);
+		int indice = Categorias.encontrarCategoria(categoria);
 		for (i = 0; i < this.proxima; i++) {
-			if (this.anuncios[i].getCategoria().equals(Categoria.getCategoria(indice))) {
+			if (this.anuncios[i].getCategoria().equals(Categorias.getCategoria(indice))) {
 				result[qt] = this.anuncios[i];
 				qt++;
 			}
@@ -62,7 +62,7 @@ public class RepositorioAnuncio {
 		int i, qt = 0;
 		Anuncio[] result = new Anuncio[this.proxima];
 		for (i = 0; i < this.proxima; i++) {
-			if (this.anuncios[i].getCategoria().equals(Categoria.getCategoria(categoria))) {
+			if (this.anuncios[i].getCategoria().equals(Categorias.getCategoria(categoria))) {
 				result[qt] = this.anuncios[i];
 				qt++;
 			}

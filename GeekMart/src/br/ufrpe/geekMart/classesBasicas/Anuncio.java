@@ -4,6 +4,7 @@ package br.ufrpe.geekMart.classesBasicas;
 
 import java.awt.*;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Anuncio {
 	
@@ -11,16 +12,16 @@ public class Anuncio {
 	private double preco;
 	private String titulo;
 	private String descricao;
-	private String categoria;
+	private String[] categoria = new String[2];
 	private String cep, estado;
 	//private Image[] imagens = new Image[5]; -- vamos adicionar quando der pra usar FileChooser
 	//private int qtImagem = 0;
-	private LocalDateTime data = LocalDateTime.now();
+	private LocalDateTime data;
 	
 	public Anuncio(){
 		
 	}
-	public Anuncio (Cliente cliente, double preco, String titulo, String descricao, String categoria, String cep,
+	public Anuncio (Cliente cliente, double preco, String titulo, String descricao, String[] categoria, String cep,
 			String estado) {
 		this.cliente = cliente;
 		this.preco = preco;
@@ -29,7 +30,7 @@ public class Anuncio {
 		this.categoria = categoria;
 		this.cep = cep;
 		this.estado = estado;
-		this.data = data;
+		this.data = LocalDateTime.now();
 	}
 	
 	public double getPreco() {
@@ -50,10 +51,10 @@ public class Anuncio {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public String getCategoria() {
+	public String[] getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(String categoria) {
+	public void setCategoria(String[] categoria) {
 		this.categoria = categoria;
 	}
 	public String getCep() {
@@ -90,7 +91,9 @@ public class Anuncio {
 		
 	}
 	public String toString(){
-		String c = "O Anuncio "+titulo+" possui preço "+preco;
+		DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String c = this.titulo + "\t" + this.data.format(formatar) + "\nVendedor: " + this.cliente.getNome() + "\nR$: " + this.preco +
+				"\n\nDescrição: " + this.descricao + "\nCategorias " + this.categoria[0] + ", " + this.categoria[1];
 		return c;
 	}
 
