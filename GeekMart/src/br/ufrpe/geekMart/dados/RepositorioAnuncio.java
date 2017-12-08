@@ -45,6 +45,19 @@ public class RepositorioAnuncio {
 	    return i;
 	}
 
+	public Anuncio[] getAnunciosCategoria (String categoria) {
+		int i, qt = 0;
+		Anuncio[] result = new Anuncio[this.proxima];
+		int indice = Categoria.encontrarCategoria(categoria);
+		for (i = 0; i < this.proxima; i++) {
+			if (this.anuncios[i].getCategoria().equals(Categoria.getCategorias(indice))) {
+				result[qt] = this.anuncios[i];
+				qt++;
+			}
+		}
+		return result;
+	}
+
 	public Anuncio procurar (String num){
 		int i = this.procurarIndice(num);
 		Anuncio resultado = null;

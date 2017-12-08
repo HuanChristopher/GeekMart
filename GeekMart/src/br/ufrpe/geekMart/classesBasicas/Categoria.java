@@ -3,8 +3,8 @@ package br.ufrpe.geekMart.classesBasicas;
 
 
 public class Categoria {
-	private String[] categorias = new String[100];
-
+	private static String[] categorias = new String[100];
+	private static int qtCategorias = 16;
 
 	public Categoria() {
 		categorias[0] = "Figuras e Estatuas";
@@ -26,15 +26,26 @@ public class Categoria {
 		categorias[16] = "DC";
 	}
 
-	public String getCategorias(int i) {
+	public static String getCategorias(int i) {
 		return categorias[i];
 	}
 
-	public void setCategorias(int num, String novaCategoria) {
-		this.categorias[num] = novaCategoria;
+	public static void setCategorias (int num, String novaCategoria) {
+		categorias[num] = novaCategoria;
+		if (num > 16) {
+			qtCategorias++;
+		}
 	}
 
-
+	public static int encontrarCategoria (String categoria) {
+		int i;
+		for (i = 0; i < qtCategorias; i++) {
+		    if (categoria.equals(categorias[i])) {
+		        return i;
+            }
+        }
+        return -1;
+	}
 
 }
 

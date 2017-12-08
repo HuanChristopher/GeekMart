@@ -30,92 +30,96 @@ public class Fachada {
 			instancia = new Fachada();
 		}
 		return instancia;
-}
+    }
 
-	// USUARIO
-		public void cadastrarUsuario(Usuario user) {
+
+	    // USUARIO
+
+		public void cadastrarUsuario  (Usuario user) {
 			this.cadastroUsuario.cadastrarUsuario(user);
 		}
 
-		public Usuario buscaUsuario(String cpf) {
+		public Usuario buscaUsuario (String cpf) {
 			return this.cadastroUsuario.buscarUsuario(cpf);
 		}
 
-		public void removerUsuario(String cpf){
+		public void removerUsuario (String cpf){
 			this.cadastroUsuario.removerUsuario(cpf);
 		}
 
 
+        // ANUNCIO
 
-		public void adicionarAnuncio(Anuncio anuncio) {
+		public void adicionarAnuncio (Anuncio anuncio) {
 			this.cadastroAnuncio.cadastrarAnuncio(anuncio);
 		}
 
-		public Anuncio buscarAnuncio(String nome) {
+		public Anuncio buscarAnuncio (String nome) {
 			return this.cadastroAnuncio.buscarAnuncio(nome);
 		}
 
 
-		public void removerAnuncio(String titulo) {
+		public void removerAnuncio (String titulo) {
 			this.cadastroAnuncio.removerAnuncio(titulo);
 		}
 
 
-		public void alterarAnuncio(Anuncio anuncio) {
+		public void alterarAnuncio (Anuncio anuncio) {
 			this.cadastroAnuncio.alterarAnuncio(anuncio);
 		}
 
-		
+		public Anuncio[] getAnunciosCategoria (String categoria) {
+			return this.cadastroAnuncio.getAnunciosCategoria(categoria);
+		}
+
 
 		// LOJA
 
-		
-
-		public void novaLoja(String cpf, Loja loja) {
+		public void novaLoja (String cpf, Loja loja) {
 			this.cadastroLoja.cadastrarLoja(cpf, loja);
 		}
 
-		public Loja buscarLoja(String nome) {
+		public Loja buscarLoja (String nome) {
 			return this.cadastroLoja.buscarLoja(nome);
 		}
 
-		public void removerLoja(String cpf) {
+		public void removerLoja (String cpf) {
 			this.cadastroLoja.removerLoja(cpf);
 		}
 
-		public void alterarLoja(String cpf, Loja loja) {
+		public void alterarLoja (String cpf, Loja loja) {
 			this.cadastroLoja.alterarLoja(cpf, loja);
 		}
 
-		
 
 		// LOGIN
 
-		public boolean autenticarLogin(String senha, String cpf) {
+		public boolean autenticarLogin (String senha, String cpf) {
 			return this.controleLogin.autenticarLogin(senha, cpf);
 		}
 
-		public boolean autenticarLoginAdm(String senha, String cpf){return this.controleLogin.autenticarLoginAdm(senha, cpf);}
+		public boolean autenticarLoginAdm (String senha, String cpf) {return this.controleLogin.autenticarLoginAdm(senha, cpf);}
+
 
 		//ADM
 
-		public void bloquearUsuario(String cpf){
+		public void bloquearUsuario (String cpf){
 			 this.cadastroUsuario.bloquearUsuario(cpf);
 		}
 
-		public void desbloquearUsuario(String cpf){
+		public void desbloquearUsuario (String cpf){
 			this.cadastroUsuario.desbloquearUsuario(cpf);
 		}
 
-	    public void cadastrarAdministrador(Administrador adm){this.cadastroAdm.cadastrarAdministrador(adm);}
+	    public void cadastrarAdministrador (Administrador adm) {this.cadastroAdm.cadastrarAdministrador(adm);}
 
-	    public void removerAdministrador(Administrador adm){this.cadastroAdm.removerAdministrador(adm);}
+	    public void removerAdministrador (Administrador adm) {this.cadastroAdm.removerAdministrador(adm);}
 
-	    public void alterarAdministrador(Administrador adm){this.cadastroAdm.alterarAdministrador(adm);}
+	    public void alterarAdministrador (Administrador adm) {this.cadastroAdm.alterarAdministrador(adm);}
 
-	    public List<Administrador> mostrarAdms(){return this.cadastroAdm.mostrarAdms();}
+	    public List<Administrador> mostrarAdms () {return this.cadastroAdm.mostrarAdms();}
 
-	    public Administrador buscarAdministrador(String cpf){ return this.cadastroAdm.buscarAdministrador(cpf);}
+	    public Administrador buscarAdministrador (String cpf) { return this.cadastroAdm.buscarAdministrador(cpf);}
 
 
 
