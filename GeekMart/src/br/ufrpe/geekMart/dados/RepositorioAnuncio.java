@@ -50,7 +50,19 @@ public class RepositorioAnuncio {
 		Anuncio[] result = new Anuncio[this.proxima];
 		int indice = Categoria.encontrarCategoria(categoria);
 		for (i = 0; i < this.proxima; i++) {
-			if (this.anuncios[i].getCategoria().equals(Categoria.getCategorias(indice))) {
+			if (this.anuncios[i].getCategoria().equals(Categoria.getCategoria(indice))) {
+				result[qt] = this.anuncios[i];
+				qt++;
+			}
+		}
+		return result;
+	}
+
+	public Anuncio[] getAnunciosCategoria (int categoria) {
+		int i, qt = 0;
+		Anuncio[] result = new Anuncio[this.proxima];
+		for (i = 0; i < this.proxima; i++) {
+			if (this.anuncios[i].getCategoria().equals(Categoria.getCategoria(categoria))) {
 				result[qt] = this.anuncios[i];
 				qt++;
 			}

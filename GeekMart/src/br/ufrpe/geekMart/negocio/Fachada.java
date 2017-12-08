@@ -72,6 +72,10 @@ public class Fachada {
 			return this.cadastroAnuncio.getAnunciosCategoria(categoria);
 		}
 
+		public Anuncio[] getAnunciosCategoria (int categoria) {
+			return this.cadastroAnuncio.getAnunciosCategoria(categoria);
+		}
+
 
 		// LOJA
 

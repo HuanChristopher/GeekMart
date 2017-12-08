@@ -26,7 +26,7 @@ public class Categoria {
 		categorias[16] = "DC";
 	}
 
-	public static String getCategorias(int i) {
+	public static String getCategoria (int i) {
 		return categorias[i];
 	}
 

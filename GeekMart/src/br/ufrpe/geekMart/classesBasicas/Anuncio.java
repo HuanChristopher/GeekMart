@@ -11,16 +11,16 @@ public class Anuncio {
 	private double preco;
 	private String titulo;
 	private String descricao;
-	private Categoria categoria;
+	private String categoria;
 	private String cep, estado;
-	private Image[] imagens = new Image[5];
-	private int qtImagem = 0;
+	//private Image[] imagens = new Image[5]; -- vamos adicionar quando der pra usar FileChooser
+	//private int qtImagem = 0;
 	private LocalDateTime data = LocalDateTime.now();
 	
 	public Anuncio(){
 		
 	}
-	public Anuncio (Cliente cliente, double preco, String titulo, String descricao, Categoria categoria, String cep,
+	public Anuncio (Cliente cliente, double preco, String titulo, String descricao, String categoria, String cep,
 			String estado) {
 		this.cliente = cliente;
 		this.preco = preco;
@@ -50,10 +50,10 @@ public class Anuncio {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public Categoria getCategoria() {
+	public String getCategoria() {
 		return categoria;
 	}
-	public void setCategoria(Categoria categoria) {
+	public void setCategoria(String categoria) {
 		this.categoria = categoria;
 	}
 	public String getCep() {
@@ -94,15 +94,15 @@ public class Anuncio {
 		return c;
 	}
 
-	public Image[] getImagens() {
-		        return imagens;
-		  }
+	/*public Image[] getImagens() {
+		return imagens;
+	}
 
-		    public void setImagem (Image imagem) {
-			    if (imagem != null && qtImagem < 3) {
-			            this.imagens[this.qtImagem] = imagem;
-			           this.qtImagem++;
-			       }
-		    }
+	public void setImagem (Image imagem) {
+	    if (imagem != null && qtImagem < 3) {
+	    	this.imagens[this.qtImagem] = imagem;
+			this.qtImagem++;
+		}
+	}*/
 
 }
