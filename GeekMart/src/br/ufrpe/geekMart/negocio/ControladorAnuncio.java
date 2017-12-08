@@ -47,4 +47,8 @@ public class ControladorAnuncio {
             }
         }
 	}
+
+	public Anuncio[] getAnunciosCategoria (String categoria) {
+		return this.repositorio.getAnunciosCategoria(categoria);
+	}
 }
