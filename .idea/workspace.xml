@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0511619b-547e-44e8-8751-834871b771b5" name="Default" comment="Anuncio:&#10;&gt;anuncio contem uma String categoria[2] (por ter uma categoria e uma subcategoria)&#10;&gt;a data do anuncio é inicializada no construtor&#10;&gt;método toString() melhorado&#10;&#10;Categorias:&#10;&gt;classe Categoria agora se chama Categorias&#10;&gt;implementado toStringPrincipal(), que retorna em String as categorias&#10;&gt;implementado toStringSubcategorias(int i), que retorna em String as subcategorias de uma categoria escolhida&#10;&gt;implementado pegarCategoriaEscolhida(int caso, int opcao), que retorna o indice no vetor String[] categorias, pois na hora do toStringSubcategorias() os indices imprimidos são 1, 2, 3.. para facilitar o entendimento do usuário&#10;&#10;ClasseTeste: &#10;&gt;implementado MenuCategoria(), que retorna as categorias escolhidas e as adiciona no anuncio que está sendo criado">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="0511619b-547e-44e8-8751-834871b771b5" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/ClasseTeste.java" afterPath="$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/ClasseTeste.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/classesBasicas/Cliente.java" afterPath="$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/classesBasicas/Cliente.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/classesBasicas/Loja.java" afterPath="$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/classesBasicas/Loja.java" />
     </list>
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -12,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ClasseTeste.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ClasseTeste.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/ClasseTeste.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-671">
-              <caret line="488" column="0" lean-forward="false" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
+            <state relative-caret-position="489">
+              <caret line="357" column="21" lean-forward="true" selection-start-line="357" selection-start-column="21" selection-end-line="357" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#239#240#0" expanded="true" />
@@ -38,7 +41,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Categorias.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Categorias.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/classesBasicas/Categorias.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -119,6 +122,19 @@
     <option name="externalProjectsViewState">
       <projects_view />
     </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/ClasseTeste.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-23" />
+    <option name="width" value="1386" />
+    <option name="height" value="788" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -347,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512775968651</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Anuncio:&#10;&gt;anuncio contem uma String categoria[2] (por ter uma categoria e uma subcategoria)&#10;&gt;a data do anuncio é inicializada no construtor&#10;&gt;método toString() melhorado&#10;&#10;Categorias:&#10;&gt;classe Categoria agora se chama Categorias&#10;&gt;implementado toStringPrincipal(), que retorna em String as categorias&#10;&gt;implementado toStringSubcategorias(int i), que retorna em String as subcategorias de uma categoria escolhida&#10;&gt;implementado pegarCategoriaEscolhida(int caso, int opcao), que retorna o indice no vetor String[] categorias, pois na hora do toStringSubcategorias() os indices imprimidos são 1, 2, 3.. para facilitar o entendimento do usuário&#10;&#10;ClasseTeste: &#10;&gt;implementado MenuCategoria(), que retorna as categorias escolhidas e as adiciona no anuncio que está sendo criado">
+      <created>1512776438886</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1512776438886</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -359,19 +382,19 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39936608" sideWeight="0.5409956" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04912837" sideWeight="0.5351391" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.46193266" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296355" sideWeight="0.46778917" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.04912837" sideWeight="0.46486092" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24304539" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39936608" sideWeight="0.4590044" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39936608" sideWeight="0.4590044" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -805,18 +828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/ClasseTeste.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-671">
-          <caret line="488" column="0" lean-forward="false" selection-start-line="488" selection-start-column="0" selection-end-line="488" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#280#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/classesBasicas/Anuncio.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
@@ -834,6 +845,18 @@
           <folding>
             <marker date="1512775166802" expanded="false" signature="1555:1560" ph=" { " />
             <marker date="1512775166802" expanded="false" signature="1581:1584" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GeekMart/src/br/ufrpe/geekMart/ClasseTeste.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="489">
+          <caret line="357" column="21" lean-forward="true" selection-start-line="357" selection-start-column="21" selection-end-line="357" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#239#240#0" expanded="true" />
+            <element signature="e#280#281#0" expanded="true" />
           </folding>
         </state>
       </provider>
