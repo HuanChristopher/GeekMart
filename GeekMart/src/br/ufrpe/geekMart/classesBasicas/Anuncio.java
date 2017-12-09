@@ -16,7 +16,7 @@ public class Anuncio {
 	private String cep, estado;
 	//private Image[] imagens = new Image[5]; -- vamos adicionar quando der pra usar FileChooser
 	//private int qtImagem = 0;
-	private LocalDateTime data;
+	private LocalDateTime data = null;
 	
 	public Anuncio(){
 		
@@ -78,7 +78,11 @@ public class Anuncio {
 	public void setCliente(Cliente cliente){
 		this.cliente = cliente;
 	}
-
+	public void setData () {
+		if (this.data == null) {
+			this.data = LocalDateTime.now();
+		}
+	}
 	
 	public boolean equals (Anuncio c) {
 		boolean r;
@@ -93,7 +97,7 @@ public class Anuncio {
 	public String toString(){
 		DateTimeFormatter formatar = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		String c = this.titulo + "\t" + this.data.format(formatar) + "\nVendedor: " + this.cliente.getNome() + "\nR$: " + this.preco +
-				"\n\nDescrição: " + this.descricao + "\nCategorias " + this.categoria[0] + ", " + this.categoria[1];
+				"\nDescrição: " + this.descricao + "\nCategorias " + this.categoria[0] + ", " + this.categoria[1];
 		return c;
 	}
 

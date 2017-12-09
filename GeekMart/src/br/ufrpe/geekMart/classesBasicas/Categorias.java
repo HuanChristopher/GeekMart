@@ -77,7 +77,7 @@ public class Categorias {
 	        f = i;
 	        f++;
             s = s + "[" + f + "] " + categorias[i];
-            if (f <= 11) {
+            if (f < 11) {
                 s = s  + "\n";
             }
         }
