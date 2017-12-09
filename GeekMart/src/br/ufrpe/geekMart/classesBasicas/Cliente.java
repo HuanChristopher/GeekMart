@@ -51,7 +51,7 @@ public class Cliente extends Usuario{
 	}
 
 	public ArrayList<Anuncio> getAnuncios() {
-		return anuncios;
+		return this.anuncios;
 	}
 
 	public void setAnuncios (Anuncio anuncios) {

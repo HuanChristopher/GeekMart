@@ -226,7 +226,6 @@ public class ClasseTeste {
                         titulop = scan.nextLine();
                         Anuncio temp = fachada.buscarAnuncio(titulop);
                         if (temp != null) {
-                            //System.out.println("O anuncio " + temp.getTitulo() + " foi encontrado.");
                             System.out.println(temp.toString());
                         } else {
                             System.out.println("O anuncio não foi encontrado.");
@@ -279,6 +278,9 @@ public class ClasseTeste {
                         System.out.println("Informar estado:");
                         estado2 = scan.nextLine();
                         loja.setEstado(estado2);
+                        System.out.println("Informar telefone: ");
+                        telefone = scan.nextLine();
+                        loja.setTelefone(telefone);
                         loja.setAnuncios(cliente.getAnuncios());
                         fachada.novaLoja(login, loja);
                         cliente.setLoja(loja);
@@ -301,7 +303,7 @@ public class ClasseTeste {
                         titulop = scan.nextLine();
                         Loja tempo = fachada.buscarLoja(titulop);
                         if (tempo != null) {
-                            System.out.println("A loja " + tempo.getNome() + " foi encontrada.");
+                            System.out.println(tempo.toString());
                         } else {
                             System.out.println("A loja não foi encontrada.");
                         }

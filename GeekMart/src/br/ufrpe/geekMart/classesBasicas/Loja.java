@@ -22,7 +22,7 @@ public class Loja {
 		this.telefone = telefone;
 		this.cliente = cliente;
 		this.anuncios = cliente.getAnuncios();
-
+		this.tamanho = this.anuncios.size();
 	}
 
 	public String getNome() {
@@ -65,7 +65,7 @@ public class Loja {
 		this.telefone = telefone;
 	}
 
-	public ArrayList<Anuncio> getAnuncios() {
+	public ArrayList<Anuncio> getAnuncio(int i) {
 		return anuncios;
 	}
 
@@ -90,7 +90,16 @@ public class Loja {
 	}
 
 	public String toString(){
-		String c = "A loja "+nome+" possui a descrição: "+descricao;
+		String c = "Loja: " + this.getNome() + "\nDono: " + this.getCliente() + "\nDescrição: " + this.getDescricao() +
+				"\nLocal: " + this.getEstado() + ", " + this.getCep() + "\nTelefone: " + this.getTelefone();
+		if (tamanho > 0) {
+            for (int i = 0; i < this.tamanho; i++) {
+                c = c + "\n" + this.getAnuncio(i).toString();
+            }
+        }
+        else {
+		    c = c + "\nA loja ainda não contem anúncios.";
+        }
 		return c;
 	}
 	
