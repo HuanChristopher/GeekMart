@@ -2,6 +2,9 @@ package br.ufrpe.geekMart.negocio;
 
 import br.ufrpe.geekMart.classesBasicas.Usuario;
 import br.ufrpe.geekMart.dados.RepositorioUsuario;
+import br.ufrpe.geekMart.exceptions.JaExisteException;
+import br.ufrpe.geekMart.exceptions.NaoExisteException;
+import br.ufrpe.geekMart.exceptions.ParametroNullException;
 
 public class ControladorUsuario {
 	private static ControladorUsuario instancia;
@@ -18,20 +21,32 @@ public class ControladorUsuario {
 		return instancia;
 }
 
-	public void cadastrarUsuario(Usuario user) {
+	public void cadastrarUsuario(Usuario user) throws ParametroNullException, JaExisteException {
 		if (user != null) {
 			boolean existe = this.repositorio.existe(user.getCpf());
-			if (existe != true) {
+			if (!existe) {
 				this.repositorio.cadastrarUsuario(user);
-			}
-		}
+			} else {
+			    throw new JaExisteException("usuário", "CPF " + user.getCpf());
+            }
+		} else {
+		    throw new ParametroNullException("usuário");
+        }
 	}
-	public Usuario buscarUsuario(String cpf){
+
+	public Usuario buscarUsuario(String cpf) throws ParametroNullException, NaoExisteException {
 		Usuario retorno = null;
 		if(cpf != null){
-			retorno = this.repositorio.procurar(cpf);
-		}
-		return retorno;
+		    boolean existe = this.repositorio.existe(cpf);
+		    if (existe) {
+                retorno = this.repositorio.procurar(cpf);
+                return retorno;
+            } else {
+		        throw new NaoExisteException("usuário", "CPF " + cpf);
+            }
+		} else {
+		    throw new ParametroNullException("CPF");
+        }
 	}
 	public void removerUsuario(String cpf){
 		if(cpf != null){

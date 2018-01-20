@@ -3,6 +3,7 @@ package br.ufrpe.geekMart.dados;
 import java.util.List;
 
 import br.ufrpe.geekMart.classesBasicas.*;
+import br.ufrpe.geekMart.exceptions.NaoExisteException;
 
 public class RepositorioUsuario {
 	
@@ -62,12 +63,10 @@ public class RepositorioUsuario {
 	 	return i;
 	}
 
-	public Usuario procurar(String num){
-		int i = this.procurarIndice(num);
+	public Usuario procurar(String cpf) {
+		int i = this.procurarIndice(cpf);
 		Usuario resultado = null;
-		if (i != this.proxima) {
-			resultado = this.usuarios[i];
-		}
+		resultado = this.usuarios[i];
 		return resultado;
 	}
 

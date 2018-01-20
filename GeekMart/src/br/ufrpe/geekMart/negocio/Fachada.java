@@ -4,6 +4,9 @@ import br.ufrpe.geekMart.classesBasicas.Administrador;
 import br.ufrpe.geekMart.classesBasicas.Anuncio;
 import br.ufrpe.geekMart.classesBasicas.Loja;
 import br.ufrpe.geekMart.classesBasicas.Usuario;
+import br.ufrpe.geekMart.exceptions.JaExisteException;
+import br.ufrpe.geekMart.exceptions.NaoExisteException;
+import br.ufrpe.geekMart.exceptions.ParametroNullException;
 import br.ufrpe.geekMart.negocio.*;
 
 import java.util.List;
@@ -35,11 +38,11 @@ public class Fachada {
 
 	    // USUARIO
 
-		public void cadastrarUsuario  (Usuario user) {
+		public void cadastrarUsuario  (Usuario user) throws ParametroNullException, JaExisteException {
 			this.cadastroUsuario.cadastrarUsuario(user);
 		}
 
-		public Usuario buscaUsuario (String cpf) {
+		public Usuario buscaUsuario (String cpf) throws ParametroNullException, NaoExisteException {
 			return this.cadastroUsuario.buscarUsuario(cpf);
 		}
 
@@ -50,21 +53,21 @@ public class Fachada {
 
         // ANUNCIO
 
-		public void adicionarAnuncio (Anuncio anuncio) {
+		public void adicionarAnuncio (Anuncio anuncio) throws ParametroNullException, JaExisteException {
 			this.cadastroAnuncio.cadastrarAnuncio(anuncio);
 		}
 
-		public Anuncio buscarAnuncio (String nome) {
+		public Anuncio buscarAnuncio (String nome) throws ParametroNullException {
 			return this.cadastroAnuncio.buscarAnuncio(nome);
 		}
 
 
-		public void removerAnuncio (String titulo) {
+		public void removerAnuncio (String titulo) throws ParametroNullException, NaoExisteException {
 			this.cadastroAnuncio.removerAnuncio(titulo);
 		}
 
 
-		public void alterarAnuncio (Anuncio anuncio) {
+		public void alterarAnuncio (Anuncio anuncio) throws ParametroNullException, NaoExisteException {
 			this.cadastroAnuncio.alterarAnuncio(anuncio);
 		}
 
@@ -79,20 +82,20 @@ public class Fachada {
 
 		// LOJA
 
-		public void novaLoja (String cpf, Loja loja) {
-			this.cadastroLoja.cadastrarLoja(cpf, loja);
+		public void novaLoja (Loja loja) throws  ParametroNullException, JaExisteException {
+			this.cadastroLoja.cadastrarLoja(loja);
 		}
 
-		public Loja buscarLoja (String nome) {
+		public Loja buscarLoja (String nome) throws ParametroNullException, NaoExisteException {
 			return this.cadastroLoja.buscarLoja(nome);
 		}
 
-		public void removerLoja (String cpf) {
-			this.cadastroLoja.removerLoja(cpf);
+		public void removerLoja (Loja loja) throws ParametroNullException, NaoExisteException {
+			this.cadastroLoja.removerLoja(loja);
 		}
 
-		public void alterarLoja (String cpf, Loja loja) {
-			this.cadastroLoja.alterarLoja(cpf, loja);
+		public void alterarLoja (String nomeAntigo, Loja loja) throws ParametroNullException, NaoExisteException {
+			this.cadastroLoja.alterarLoja(nomeAntigo, loja);
 		}
 
 
@@ -124,15 +127,5 @@ public class Fachada {
 	    public List<Administrador> mostrarAdms () {return this.cadastroAdm.mostrarAdms();}
 
 	    public Administrador buscarAdministrador (String cpf) { return this.cadastroAdm.buscarAdministrador(cpf);}
-
-
-
-
-
-
-
-
-
-
 
 	}
